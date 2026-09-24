@@ -4,6 +4,7 @@ import {
 } from 'firebase/firestore'
 import { defaultServices, defaultTeam, defaultProjects, defaultBlogPosts } from './default-content'
 import { db } from './firebase'
+import { importImageFromUrl } from './images'
 import { Service, Project, Message, TeamMember, BlogPost } from '@/types'
 
 // ─── SERVICES ────────────────────────────────────────────────────────────────
@@ -151,4 +152,35 @@ export async function seedDefaultContent(): Promise<number> {
   batch.set(marker, { seededAt: serverTimestamp() })
   await batch.commit()
   return added
+}
+
+// ─── TEAM PHOTOS → FIRESTORE ─────────────────────────────────────────────────
+// Runs when the admin opens the panel. Copies any team photo that still points
+// to an external GitHub link into Firestore (see src/lib/images.ts), so every
+// photo is stored in the database and can be replaced from Admin > Team.
+// Version 1 also applies the new photos for Ashir and Saiqa, once.
+const ASSETS = 'https://raw.githubusercontent.com/datixai/datixaiweb-assets/main/datixaiwebassests'
+const TEAM_PHOTO_UPDATES_V1: Record<string, string> = {
+  'ashir-mehfooz': `${ASSETS}/ashirnewpic.jpeg`,
+  'saiqa-aziz': `${ASSETS}/saiqa.jpeg`,
+}
+
+export async function migrateTeamPhotos(): Promise<number> {
+  const marker = doc(db, 'settings', 'team-photos-v1')
+  if (!(await getDoc(marker)).exists()) {
+    for (const [id, url] of Object.entries(TEAM_PHOTO_UPDATES_V1)) {
+      const ref = doc(db, 'team', id)
+      if ((await getDoc(ref)).exists()) await updateDoc(ref, { imageUrl: url })
+    }
+    await setDoc(marker, { appliedAt: serverTimestamp() })
+  }
+
+  let moved = 0
+  for (const m of await getTeamMembers()) {
+    if (m.imageUrl?.startsWith('https://raw.githubusercontent.com/')) {
+      await updateDoc(doc(db, 'team', m.id), { imageUrl: await importImageFromUrl(m.imageUrl, 600) })
+      moved++
+    }
+  }
+  return moved
 }

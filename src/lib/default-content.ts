@@ -83,7 +83,7 @@ export const defaultServices: Seed<Service>[] = [
 export const defaultTeam: Seed<TeamMember>[] = [
   {
     id: 'ashir-mehfooz', name: 'Ashir Mehfooz', role: 'CEO', order: 1,
-    imageUrl: 'https://raw.githubusercontent.com/datixai/datixaiweb-assets/main/datixaiwebassests/ashirpic.jpg',
+    imageUrl: 'https://raw.githubusercontent.com/datixai/datixaiweb-assets/main/datixaiwebassests/ashirnewpic.jpeg',
     bio: 'Ashir leads XactGen with a vision to build a leading company that creates smart solutions with real impact. Starting his journey as a BS Data Science student, he has worked on real projects and solved real-world problems.',
     linkedin: '',
   },
@@ -94,13 +94,9 @@ export const defaultTeam: Seed<TeamMember>[] = [
     linkedin: 'https://www.linkedin.com/in/rajaahmedalikhan/',
   },
   {
-    id: 'saiqa-aziz', name: 'Saiqa Aziz', role: 'Project Manager', order: 3, imageUrl: '',
+    id: 'saiqa-aziz', name: 'Saiqa Aziz', role: 'Project Manager', order: 3,
+    imageUrl: 'https://raw.githubusercontent.com/datixai/datixaiweb-assets/main/datixaiwebassests/saiqa.jpeg',
     bio: 'Saiqa manages projects with strong coordination and leadership, ensuring timely delivery and smooth teamwork at XactGen.',
-    linkedin: '',
-  },
-  {
-    id: 'mudasar-hussain', name: 'Mudasar Hussain', role: 'Head of Marketing', order: 4, imageUrl: '',
-    bio: "Mudasar leads marketing strategies and manages the company's website, ensuring XactGen's work reaches the right audience.",
     linkedin: '',
   },
 ]

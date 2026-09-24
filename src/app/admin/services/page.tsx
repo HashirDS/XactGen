@@ -5,6 +5,7 @@ import { Service } from '@/types'
 import toast from 'react-hot-toast'
 import { iconOptions } from '@/lib/service-details'
 import { iconMap } from '@/components/ui/ServiceIcon'
+import ImageUpload from '@/components/admin/ImageUpload'
 
 const emptyService: Omit<Service,'id'|'createdAt'> = {
  title:'', slug:'', shortDescription:'', fullDescription:'',
@@ -167,8 +168,8 @@ export default function AdminServicesPage() {
  <p className="text-sm font-medium text-white mb-3">Media</p>
  <div className="space-y-3">
  <div>
- <label className="block text-sm text-slate-400 mb-1.5">Main Photo URL</label>
- <input value={form.imageUrl||''} onChange={e=>setForm(p=>({...p,imageUrl:e.target.value}))} className={ic} placeholder="https://..."/>
+ <label className="block text-sm text-slate-400 mb-1.5">Main Photo</label>
+ <ImageUpload value={form.imageUrl||''} onChange={url=>setForm(p=>({...p,imageUrl:url}))} />
  </div>
  <div>
  <label className="block text-sm text-slate-400 mb-1.5">
@@ -179,14 +180,14 @@ export default function AdminServicesPage() {
  </label>
  <input value={(form as any).youtubeUrl||''} onChange={e=>setForm(p=>({...p,youtubeUrl:e.target.value}))} className={ic} placeholder="https://youtube.com/watch?v=..."/>
  </div>
- <div className="grid grid-cols-2 gap-3">
+ <div className="space-y-3">
  <div>
- <label className="block text-sm text-slate-400 mb-1.5">Photo 2 URL</label>
- <input value={(form as any).image2Url||''} onChange={e=>setForm(p=>({...p,image2Url:e.target.value}))} className={ic} placeholder="https://..."/>
+ <label className="block text-sm text-slate-400 mb-1.5">Photo 2</label>
+ <ImageUpload value={(form as any).image2Url||''} onChange={url=>setForm(p=>({...p,image2Url:url}))} />
  </div>
  <div>
- <label className="block text-sm text-slate-400 mb-1.5">Photo 3 URL</label>
- <input value={(form as any).image3Url||''} onChange={e=>setForm(p=>({...p,image3Url:e.target.value}))} className={ic} placeholder="https://..."/>
+ <label className="block text-sm text-slate-400 mb-1.5">Photo 3</label>
+ <ImageUpload value={(form as any).image3Url||''} onChange={url=>setForm(p=>({...p,image3Url:url}))} />
  </div>
  </div>
  </div>

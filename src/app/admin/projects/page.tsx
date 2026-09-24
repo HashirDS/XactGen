@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { getProjects, addProject, updateProject, deleteProject } from '@/lib/firestore'
 import { Project } from '@/types'
 import toast from 'react-hot-toast'
+import ImageUpload from '@/components/admin/ImageUpload'
 
 const categories = ['AI/ML', 'Web Development', 'Data Analytics', 'Automation', 'NLP', 'Computer Vision', 'Business Intelligence', 'Other']
 
@@ -194,25 +195,25 @@ export default function AdminProjectsPage() {
  <p className="text-xs text-slate-500 mt-1">If provided, video will be shown on project page</p>
  </div>
  <div>
- <label className="block text-sm text-slate-400 mb-1.5">Main Image URL</label>
- <input name="imageUrl" value={form.imageUrl} onChange={handleChange} className={inputClass} placeholder="https://..." />
+ <label className="block text-sm text-slate-400 mb-1.5">Main Image</label>
+ <ImageUpload value={form.imageUrl || ''} onChange={url => setForm(p => ({ ...p, imageUrl: url }))} />
  </div>
- <div className="grid grid-cols-2 gap-3">
+ <div className="space-y-3">
  <div>
- <label className="block text-sm text-slate-400 mb-1.5">Image 2 URL</label>
- <input name="image2Url" value={(form as any).image2Url || ''} onChange={handleChange} className={inputClass} placeholder="https://..." />
- </div>
- <div>
- <label className="block text-sm text-slate-400 mb-1.5">Image 3 URL</label>
- <input name="image3Url" value={(form as any).image3Url || ''} onChange={handleChange} className={inputClass} placeholder="https://..." />
+ <label className="block text-sm text-slate-400 mb-1.5">Image 2</label>
+ <ImageUpload value={(form as any).image2Url || ''} onChange={url => setForm(p => ({ ...p, image2Url: url }))} />
  </div>
  <div>
- <label className="block text-sm text-slate-400 mb-1.5">Image 4 URL</label>
- <input name="image4Url" value={(form as any).image4Url || ''} onChange={handleChange} className={inputClass} placeholder="https://..." />
+ <label className="block text-sm text-slate-400 mb-1.5">Image 3</label>
+ <ImageUpload value={(form as any).image3Url || ''} onChange={url => setForm(p => ({ ...p, image3Url: url }))} />
  </div>
  <div>
- <label className="block text-sm text-slate-400 mb-1.5">Image 5 URL</label>
- <input name="image5Url" value={(form as any).image5Url || ''} onChange={handleChange} className={inputClass} placeholder="https://..." />
+ <label className="block text-sm text-slate-400 mb-1.5">Image 4</label>
+ <ImageUpload value={(form as any).image4Url || ''} onChange={url => setForm(p => ({ ...p, image4Url: url }))} />
+ </div>
+ <div>
+ <label className="block text-sm text-slate-400 mb-1.5">Image 5</label>
+ <ImageUpload value={(form as any).image5Url || ''} onChange={url => setForm(p => ({ ...p, image5Url: url }))} />
  </div>
  </div>
  </div>

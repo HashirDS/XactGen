@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { getTeamMembers, addTeamMember, updateTeamMember, deleteTeamMember } from '@/lib/firestore'
 import { TeamMember } from '@/types'
 import toast from 'react-hot-toast'
+import ImageUpload from '@/components/admin/ImageUpload'
 
 const emptyMember: Omit<TeamMember, 'id' | 'createdAt'> = {
  name: '', role: '', bio: '', imageUrl: '', linkedin: '', order: 0,
@@ -145,11 +146,9 @@ export default function AdminTeamPage() {
  placeholder="Short bio..." />
  </div>
  <div className="grid grid-cols-2 gap-4">
- <div>
- <label className="block text-sm text-slate-400 mb-1.5">Photo URL</label>
- <input name="imageUrl" value={form.imageUrl} onChange={handleChange}
- className="w-full bg-space-800 border border-aurora-cyan/20 rounded-xl px-4 py-2.5 text-white text-sm focus:outline-none focus:border-aurora-cyan/60"
- placeholder="https://..." />
+ <div className="col-span-2">
+ <label className="block text-sm text-slate-400 mb-1.5">Photo</label>
+ <ImageUpload round maxSide={600} value={form.imageUrl || ''} onChange={url => setForm(p => ({ ...p, imageUrl: url }))} />
  </div>
  <div>
  <label className="block text-sm text-slate-400 mb-1.5">Order</label>

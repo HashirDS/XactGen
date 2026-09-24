@@ -20,7 +20,7 @@
 
 - Type: AI and data science services company
 - CEO: Ashir Mehfooz
-- Team: Saiqa Aziz (Project Manager), Mudasar Hussain (Head of Marketing), Zia Ul Arifeen (Head of Finance)
+- Team: Ahmed Ali (Head of AI), Saiqa Aziz (Project Manager)
 - Office: Software Technology Park, University of Kotli AJK, Pakistan
 - Benefits: 24/7 quick support, on-time delivery, skilled and expert teams, industry-specific expertise
 

@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { getBlogPosts, addBlogPost, updateBlogPost, deleteBlogPost } from '@/lib/firestore'
 import { BlogPost } from '@/types'
 import toast from 'react-hot-toast'
+import ImageUpload from '@/components/admin/ImageUpload'
 
 const blogCategories = ['AI & ML', 'Data Science', 'Web Development', 'Business', 'Tutorials', 'News', 'Case Studies']
 
@@ -220,8 +221,8 @@ export default function AdminBlogPage() {
  <input name="readTime" type="number" value={form.readTime} onChange={handleChange} className={ic} min={1} max={60} />
  </div>
  <div>
- <label className="block text-sm text-slate-400 mb-1.5">Cover Image URL</label>
- <input name="coverImageUrl" value={form.coverImageUrl} onChange={handleChange} className={ic} placeholder="https://..." />
+ <label className="block text-sm text-slate-400 mb-1.5">Cover Image</label>
+ <ImageUpload value={form.coverImageUrl || ''} onChange={url => setForm(p => ({ ...p, coverImageUrl: url }))} />
  </div>
  <div>
  <label className="block text-sm text-slate-400 mb-1.5">Tags (comma separated)</label>

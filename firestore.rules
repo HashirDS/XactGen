@@ -4,7 +4,7 @@ service cloud.firestore {
   match /databases/{database}/documents {
 
     // Admin UID — only this user can write to admin-managed collections.
-    // Replace SpCZOVVasMPf45wQjRv8N1GVMPs1 with the UID of your admin user
+    // This must be the UID of the admin user
     // (Firebase Console > Authentication > Users > User UID).
     function isAdmin() {
       return request.auth != null
@@ -29,7 +29,17 @@ service cloud.firestore {
       allow create, update, delete: if isAdmin();
     }
 
-    // ── Settings (e.g. settings/hire-me) ────────────────────────────────────
+    // ── Images uploaded from the admin panel (stored as data URLs) ──────────
+    match /images/{docId} {
+      allow read: if true;
+      allow create: if isAdmin()
+        && request.resource.data.data is string
+        && request.resource.data.data.matches('^data:image/.*')
+        && request.resource.data.data.size() < 1000000;
+      allow delete: if isAdmin();
+    }
+
+    // ── Settings (site settings and one-time markers) ─────────────────────
     match /settings/{docId} {
       allow read: if true;
       allow write: if isAdmin();

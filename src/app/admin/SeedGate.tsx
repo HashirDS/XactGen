@@ -1,23 +1,34 @@
 'use client'
 import { useEffect, useState, ReactNode } from 'react'
 import toast from 'react-hot-toast'
-import { seedDefaultContent } from '@/lib/firestore'
+import { seedDefaultContent, migrateTeamPhotos } from '@/lib/firestore'
 
 /**
  * On the admin's first visit, copies the website's built-in content into
- * Firestore before the admin pages load their lists (see seedDefaultContent).
+ * Firestore before the admin pages load their lists (see seedDefaultContent),
+ * and moves team photos hosted on GitHub into the database (migrateTeamPhotos).
  */
 export default function SeedGate({ children }: { children: ReactNode }) {
   const [ready, setReady] = useState(false)
 
   useEffect(() => {
-    seedDefaultContent()
-      .then(n => { if (n > 0) toast.success(`Website content added to the database (${n} items). You can now edit or delete it.`) })
-      .catch(err => {
+    const run = async () => {
+      try {
+        const n = await seedDefaultContent()
+        if (n > 0) toast.success(`Website content added to the database (${n} items). You can now edit or delete it.`)
+      } catch (err) {
         console.error('[XactGen] Could not copy built-in content to Firestore:', err)
         toast.error('Could not copy website content to the database. Check the admin UID in the Firestore rules.')
-      })
-      .finally(() => setReady(true))
+      }
+      try {
+        const moved = await migrateTeamPhotos()
+        if (moved > 0) toast.success(`${moved} team photo(s) moved into the database.`)
+      } catch (err) {
+        console.error('[XactGen] Could not move team photos to Firestore:', err)
+        toast.error('Could not save team photos to the database. Publish the latest firestore.rules in Firebase.')
+      }
+    }
+    run().finally(() => setReady(true))
   }, [])
 
   if (!ready) {
