@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { getMessages, markMessageRead, deleteMessage } from '@/lib/firestore'
 import { Message } from '@/types'
 import toast from 'react-hot-toast'
+import { composeEmailUrl } from '@/lib/site'
 
 export default function AdminMessagesPage() {
  const [messages, setMessages] = useState<Message[]>([])
@@ -123,14 +124,14 @@ export default function AdminMessagesPage() {
  <div className="grid grid-cols-2 gap-4 mb-6">
  {[
  { label: 'From', value: selected.name },
- { label: 'Email', value: selected.email, href: `mailto:${selected.email}` },
+ { label: 'Email', value: selected.email, href: composeEmailUrl(selected.email) },
  { label: 'Phone', value: selected.phone || 'Not provided', href: selected.phone ? `tel:${selected.phone}` : undefined },
  { label: 'Service', value: selected.service || 'General inquiry' },
  ].map(item => (
  <div key={item.label} className="bg-space-800/50 rounded-xl p-3">
  <div className="text-xs text-slate-500 mb-1">{item.label}</div>
  {item.href ? (
- <a href={item.href} className="text-sm text-aurora-cyan hover:text-aurora-cyan">{item.value}</a>
+ <a href={item.href} {...(item.href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})} className="text-sm text-aurora-cyan hover:text-aurora-cyan">{item.value}</a>
  ) : (
  <div className="text-sm text-white">{item.value}</div>
  )}
@@ -144,7 +145,7 @@ export default function AdminMessagesPage() {
  </div>
 
  <div className="flex gap-3">
- <a href={`mailto:${selected.email}?subject=Re: ${selected.subject}`}
+ <a href={composeEmailUrl(selected.email, `Re: ${selected.subject || 'Your message to XactGen'}`)} target="_blank" rel="noopener noreferrer"
  className="btn-primary text-sm px-5 py-2.5">
  Reply via Email
  </a>

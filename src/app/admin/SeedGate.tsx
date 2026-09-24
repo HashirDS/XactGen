@@ -1,12 +1,13 @@
 'use client'
 import { useEffect, useState, ReactNode } from 'react'
 import toast from 'react-hot-toast'
-import { seedDefaultContent, migrateTeamPhotos } from '@/lib/firestore'
+import { seedDefaultContent, migrateTeamPhotos, migratePortfolioProjects } from '@/lib/firestore'
 
 /**
  * On the admin's first visit, copies the website's built-in content into
  * Firestore before the admin pages load their lists (see seedDefaultContent),
- * and moves team photos hosted on GitHub into the database (migrateTeamPhotos).
+ * moves team photos hosted on GitHub into the database (migrateTeamPhotos),
+ * and adds the portfolio projects with their images (migratePortfolioProjects).
  */
 export default function SeedGate({ children }: { children: ReactNode }) {
   const [ready, setReady] = useState(false)
@@ -26,6 +27,14 @@ export default function SeedGate({ children }: { children: ReactNode }) {
       } catch (err) {
         console.error('[XactGen] Could not move team photos to Firestore:', err)
         toast.error('Could not save team photos to the database. Publish the latest firestore.rules in Firebase.')
+      }
+      try {
+        const { added, images } = await migratePortfolioProjects()
+        if (added > 0) toast.success(`${added} portfolio project(s) added. Delete any you don't want in Projects.`)
+        else if (images > 0) toast.success(`${images} project image(s) moved into the database.`)
+      } catch (err) {
+        console.error('[XactGen] Could not add portfolio projects:', err)
+        toast.error('Could not add the portfolio projects. Publish the latest firestore.rules in Firebase.')
       }
     }
     run().finally(() => setReady(true))

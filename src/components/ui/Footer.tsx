@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { SITE } from '@/lib/site'
+import { SITE, composeEmailUrl } from '@/lib/site'
 
 export default function Footer() {
   const year = new Date().getFullYear()
@@ -37,13 +37,13 @@ export default function Footer() {
                 </svg>
               </a>
               {/*
-                Email button — opens the visitor's default mail client directly
-                via mailto:. The address is not displayed as visible text on the
-                page (only the tooltip and the mailto href hold it), which
-                reduces exposure to naive plain-text scrapers.
+                Email button — opens a new Gmail message in a new tab, addressed
+                to us (see composeEmailUrl for why not mailto:).
               */}
               <a
-                href={`mailto:${SITE.email}`}
+                href={composeEmailUrl(SITE.email)}
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="Send us an email"
                 title="Send us an email"
                 className="w-9 h-9 rounded-lg bg-space-800 border border-white/[0.05] flex items-center justify-center text-slate-400 hover:text-aurora-cyan hover:border-aurora-cyan/40 transition-all"

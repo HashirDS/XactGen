@@ -11,6 +11,7 @@ export const SITE = {
   phoneIntl: '+92-304-9111104',
   whatsapp: '923049111104', // digits only, no + or spaces
   linkedin: 'https://www.linkedin.com/company/xactgen/',
+  github: 'https://github.com/HashirDS',
   address: 'Software Technology Park, University of Kotli AJK, Pakistan',
   mapsQuery: 'Software+Technology+Park,+University+of+Kotli,+AJK,+Pakistan',
   ceo: {
@@ -18,4 +19,15 @@ export const SITE = {
     title: 'CEO, XactGen',
     photo: 'https://raw.githubusercontent.com/datixai/datixaiweb-assets/main/datixaiwebassests/ashirnewpic.jpeg',
   },
+}
+
+/**
+ * Link that opens a new email in Gmail (in a new tab) with the address filled
+ * in. A plain mailto: link needs an email app installed on the visitor's
+ * computer, and does nothing when there is none.
+ */
+export function composeEmailUrl(to: string, subject = ''): string {
+  const q = new URLSearchParams({ view: 'cm', fs: '1', to })
+  if (subject) q.set('su', subject)
+  return `https://mail.google.com/mail/?${q.toString()}`
 }

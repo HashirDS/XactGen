@@ -5,6 +5,7 @@ import {
 import { defaultServices, defaultTeam, defaultProjects, defaultBlogPosts } from './default-content'
 import { db } from './firebase'
 import { importImageFromUrl } from './images'
+import { portfolioProjects, tutorProjectUpdate } from './portfolio-projects'
 import { Service, Project, Message, TeamMember, BlogPost } from '@/types'
 
 // ─── SERVICES ────────────────────────────────────────────────────────────────
@@ -183,4 +184,56 @@ export async function migrateTeamPhotos(): Promise<number> {
     }
   }
   return moved
+}
+
+// ─── PORTFOLIO PROJECTS → FIRESTORE ──────────────────────────────────────────
+// Runs when the admin opens the panel. Once (marker settings/portfolio-projects-v1)
+// it adds the projects from src/lib/portfolio-projects.ts that are not already
+// in Firestore, and gives the Smart Animated Tutor project its image and link.
+// Then any project image still pointing to a bundled file (/imports/...) or a
+// GitHub link is copied into Firestore. Deleted projects are not added back.
+const PROJECT_IMAGE_FIELDS = ['imageUrl', 'image2Url', 'image3Url', 'image4Url', 'image5Url'] as const
+
+export async function migratePortfolioProjects(): Promise<{ added: number; images: number }> {
+  let added = 0
+  const marker = doc(db, 'settings', 'portfolio-projects-v1')
+  if (!(await getDoc(marker)).exists()) {
+    const now = Date.now()
+    for (let i = 0; i < portfolioProjects.length; i++) {
+      const { id, ...data } = portfolioProjects[i]
+      const ref = doc(db, 'projects', id)
+      if ((await getDoc(ref)).exists()) continue
+      // Staggered dates keep the portfolio order when the list sorts newest first
+      await setDoc(ref, { ...data, createdAt: Timestamp.fromMillis(now - i * 60_000) })
+      added++
+    }
+    const tutorRef = doc(db, 'projects', tutorProjectUpdate.id)
+    const tutor = await getDoc(tutorRef)
+    if (tutor.exists()) {
+      const t = tutor.data() as Project
+      await updateDoc(tutorRef, {
+        imageUrl: t.imageUrl || tutorProjectUpdate.imageUrl,
+        liveUrl: t.liveUrl || tutorProjectUpdate.liveUrl,
+      })
+    }
+    await setDoc(marker, { appliedAt: serverTimestamp() })
+  }
+
+  // Several projects share a mockup, so each source image is stored only once
+  const imported = new Map<string, string>()
+  let images = 0
+  for (const p of await getProjects()) {
+    const changes: Record<string, string> = {}
+    for (const field of PROJECT_IMAGE_FIELDS) {
+      const url = (p as any)[field] as string | undefined
+      if (!url || !(url.startsWith('/imports/') || url.startsWith('https://raw.githubusercontent.com/'))) continue
+      if (!imported.has(url)) {
+        imported.set(url, await importImageFromUrl(url))
+        images++
+      }
+      changes[field] = imported.get(url)!
+    }
+    if (Object.keys(changes).length) await updateDoc(doc(db, 'projects', p.id), changes)
+  }
+  return { added, images }
 }
