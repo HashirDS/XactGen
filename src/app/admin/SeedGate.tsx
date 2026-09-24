@@ -21,20 +21,27 @@ export default function SeedGate({ children }: { children: ReactNode }) {
         console.error('[XactGen] Could not copy built-in content to Firestore:', err)
         toast.error('Could not copy website content to the database. Check the admin UID in the Firestore rules.')
       }
+      // Photos are saved to the `images` collection, which needs the latest
+      // firestore.rules. If they are not published yet, show one clear message.
+      let rulesMissing = false
+      const isDenied = (err: any) => err?.code === 'permission-denied'
       try {
         const moved = await migrateTeamPhotos()
         if (moved > 0) toast.success(`${moved} team photo(s) moved into the database.`)
       } catch (err) {
-        console.error('[XactGen] Could not move team photos to Firestore:', err)
-        toast.error('Could not save team photos to the database. Publish the latest firestore.rules in Firebase.')
+        if (isDenied(err)) rulesMissing = true
+        else console.error('[XactGen] Could not move team photos to Firestore:', err)
       }
       try {
         const { added, images } = await migratePortfolioProjects()
         if (added > 0) toast.success(`${added} portfolio project(s) added. Delete any you don't want in Projects.`)
         else if (images > 0) toast.success(`${images} project image(s) moved into the database.`)
       } catch (err) {
-        console.error('[XactGen] Could not add portfolio projects:', err)
-        toast.error('Could not add the portfolio projects. Publish the latest firestore.rules in Firebase.')
+        if (isDenied(err)) rulesMissing = true
+        else console.error('[XactGen] Could not add portfolio projects:', err)
+      }
+      if (rulesMissing) {
+        toast('Photos are still loading from their original links. To store them in the database, publish the latest firestore.rules (with the "images" section) in Firebase Console > Firestore > Rules.', { duration: 8000, icon: 'ℹ️' })
       }
     }
     run().finally(() => setReady(true))
