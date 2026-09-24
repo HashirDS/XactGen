@@ -4,14 +4,21 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 import { generateMetadata as genMeta } from '@/lib/seo'
-import { serviceBuckets, getBucket } from '@/lib/service-details'
+import { toBucket } from '@/lib/service-details'
+import { loadServices } from '@/lib/firestore-server'
+
+export const revalidate = 60
+
+async function getBuckets() {
+  return (await loadServices()).map(toBucket)
+}
 
 export async function generateStaticParams() {
-  return serviceBuckets.map(b => ({ slug: b.slug }))
+  return (await getBuckets()).map(b => ({ slug: b.slug }))
 }
 
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  const b = getBucket(params.slug)
+  const b = (await getBuckets()).find(x => x.slug === params.slug)
   if (!b) return genMeta({ title: 'Service Not Found' })
   return genMeta({
     title: b.title,
@@ -21,12 +28,13 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   })
 }
 
-export default function ServiceDetailPage({ params }: { params: { slug: string } }) {
-  const bucket = getBucket(params.slug)
+export default async function ServiceDetailPage({ params }: { params: { slug: string } }) {
+  const buckets = await getBuckets()
+  const bucket = buckets.find(x => x.slug === params.slug)
   if (!bucket) notFound()
 
   // Sibling services for the "explore other services" section
-  const others = serviceBuckets.filter(b => b.slug !== bucket.slug).slice(0, 4)
+  const others = buckets.filter(b => b.slug !== bucket.slug).slice(0, 4)
 
   return (
     <>
@@ -50,6 +58,9 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
             <p className="text-slate-400 text-lg lg:text-xl font-light leading-relaxed">
               {bucket.summary}
             </p>
+            {bucket.description && (
+              <p className="text-slate-300 leading-relaxed mt-6">{bucket.description}</p>
+            )}
             <div className="flex flex-wrap gap-2 justify-center mt-8">
               {bucket.tagsShort.map(tag => (
                 <span key={tag} className="text-xs px-3 py-1.5 rounded-full bg-aurora-cyan/8 border border-aurora-cyan/15 text-aurora-cyan">

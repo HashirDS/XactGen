@@ -9,7 +9,8 @@
  * Use this ONLY in server components, route handlers and sitemap.
  * Client components and the admin panel keep using src/lib/firestore.ts.
  */
-import type { BlogPost, Project } from '@/types'
+import type { BlogPost, Project, Service, TeamMember } from '@/types'
+import { defaultServices, defaultTeam, defaultProjects, defaultBlogPosts } from '@/lib/default-content'
 
 const PROJECT_ID = process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID || 'not-configured'
 const API_KEY = process.env.NEXT_PUBLIC_FIREBASE_API_KEY || ''
@@ -89,4 +90,74 @@ export async function getBlogPostsServer(publishedOnly = true): Promise<BlogPost
 
 export async function getProjectsServer(): Promise<Project[]> {
   return (await listDocsREST<Project>('projects')).sort(byNewest)
+}
+
+// ─── Loaders with built-in fallback ──────────────────────────────────────────
+// Until the admin's first login copies the built-in content into Firestore
+// (marked by settings/content-seeded), public pages show that built-in content.
+// After that, Firestore is the only source, so admin edits and deletions show.
+// If Firestore is unreachable, the built-in content is shown as well.
+
+async function isContentSeededServer(): Promise<boolean> {
+  return (await getDocREST<{ id: string }>('settings', 'content-seeded')) !== null
+}
+
+async function loadWithFallback<T>(fetchLive: () => Promise<T>, fallback: T): Promise<T> {
+  try {
+    if (!(await isContentSeededServer())) return fallback
+    return await fetchLive()
+  } catch {
+    return fallback
+  }
+}
+
+const byOrder = (a: any, b: any) => (a.order ?? 0) - (b.order ?? 0)
+
+// Timestamps are converted to epoch milliseconds so results can be passed
+// from server components to client components.
+function plain<T extends { createdAt?: any; updatedAt?: any }>(item: T): T {
+  const toMs = (ts: any) => (ts?.seconds ? ts.seconds * 1000 : null)
+  return { ...item, createdAt: toMs(item.createdAt), updatedAt: toMs(item.updatedAt) } as T
+}
+
+export async function loadServices(): Promise<Service[]> {
+  return loadWithFallback(
+    async () => (await listDocsREST<Service>('services')).filter(s => s.active !== false).sort(byOrder).map(plain),
+    defaultServices.filter(s => s.active).map(s => ({ ...s }) as Service),
+  )
+}
+
+export async function loadTeam(): Promise<TeamMember[]> {
+  return loadWithFallback(
+    async () => (await listDocsREST<TeamMember>('team')).sort(byOrder).map(plain),
+    defaultTeam.map(m => ({ ...m }) as TeamMember),
+  )
+}
+
+export async function loadProjects(): Promise<Project[]> {
+  return loadWithFallback(
+    async () => (await getProjectsServer()).map(plain),
+    defaultProjects.map(p => ({ ...p }) as Project),
+  )
+}
+
+export async function loadBlogPosts(): Promise<BlogPost[]> {
+  return loadWithFallback(
+    async () => (await getBlogPostsServer(true)).map(plain),
+    defaultBlogPosts.filter(p => p.published).map(p => ({ ...p }) as BlogPost),
+  )
+}
+
+export async function loadProject(id: string): Promise<Project | null> {
+  return loadWithFallback(
+    () => getProjectServer(id),
+    (defaultProjects.find(p => p.id === id) as Project) || null,
+  )
+}
+
+export async function loadBlogPost(id: string): Promise<BlogPost | null> {
+  return loadWithFallback(
+    () => getBlogPostServer(id),
+    (defaultBlogPosts.find(p => p.id === id) as BlogPost) || null,
+  )
 }

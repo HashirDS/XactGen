@@ -1,23 +1,11 @@
 'use client'
-import { useEffect, useState } from 'react'
 import Navbar from '@/components/ui/Navbar'
 import Footer from '@/components/ui/Footer'
-import { getTeamMembers } from '@/lib/firestore'
 import { TeamMember } from '@/types'
 import AnimatedSection from '@/components/ui/AnimatedSection'
 import Link from 'next/link'
 import OrbitSpin, { OrbitNode } from '@/components/effects/OrbitSpin'
 import { SITE } from '@/lib/site'
-
-// Shown until team members are added from the admin panel
-const defaultTeam: TeamMember[] = [
-  { id: 'saiqa', name: 'Saiqa Aziz', role: 'Project Manager', order: 1,
-    bio: 'Saiqa manages projects with strong coordination and leadership, ensuring timely delivery and smooth teamwork at XactGen.' },
-  { id: 'mudasar', name: 'Mudasar Hussain', role: 'Head of Marketing', order: 2,
-    bio: "Mudasar leads marketing strategies and manages the company's website, ensuring XactGen's work reaches the right audience." },
-  { id: 'zia', name: 'Zia Ul Arifeen', role: 'Head of Finance', order: 3,
-    bio: "Zia manages financial planning and budgeting, ensuring XactGen's growth is stable and sustainable." },
-] as TeamMember[]
 
 const pillars = [
   { title: 'Our Mission', text: 'To be the forefront provider of innovative AI development solutions, shaping the future of intelligent technology.' },
@@ -31,12 +19,7 @@ const partners: OrbitNode[] = [
   { key: 'uok', label: 'University of Kotli', image: '/partners/university-of-kotli.png', imagePadding: 'sm' },
 ]
 
-export default function AboutClient() {
-  const [team, setTeam] = useState<TeamMember[]>([])
-
-  useEffect(() => {
-    getTeamMembers().then(setTeam).catch(console.error)
-  }, [])
+export default function AboutClient({ team }: { team: TeamMember[] }) {
 
   return (
     <>
@@ -108,29 +91,6 @@ export default function AboutClient() {
           </div>
         </div>
 
-        {/* CEO message */}
-        <div className="container-custom mb-24">
-          <AnimatedSection>
-            <div className="glass rounded-3xl p-8 md:p-12 grid grid-cols-1 md:grid-cols-[220px_1fr] gap-8 md:gap-12 items-center">
-              <img
-                src={SITE.ceo.photo}
-                alt={SITE.ceo.name}
-                className="w-44 h-44 md:w-full md:h-auto aspect-square rounded-2xl object-cover object-top mx-auto border border-aurora-violet/30 bg-slate-200"
-              />
-              <div>
-                <h2 className="font-display font-bold text-2xl sm:text-3xl text-white mb-5">
-                  CEO <span className="gradient-text">Message</span>
-                </h2>
-                <p className="text-slate-300 leading-relaxed mb-6">
-                  &ldquo;My vision is to build a powerful and leading company within the next five years, creating smart solutions that truly make an impact. Starting my journey as a BS Data Science student, I&rsquo;ve worked on real projects, solved real-world problems, and learned the value of teamwork and innovation. I believe technology should not just exist, it should serve people, simplify life, and open opportunities. At XactGen, we welcome those who want to learn, grow, and build the future with us.&rdquo;
-                </p>
-                <div className="font-display font-semibold text-white">{SITE.ceo.name}</div>
-                <div className="text-aurora-cyan text-sm">{SITE.ceo.title}</div>
-              </div>
-            </div>
-          </AnimatedSection>
-        </div>
-
         {/* Stats */}
         <div className="border-y border-aurora-cyan/15 bg-navy-900/30 py-14 mb-24">
           <div className="container-custom grid grid-cols-2 md:grid-cols-3 gap-8 text-center">
@@ -157,7 +117,7 @@ export default function AboutClient() {
           </AnimatedSection>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {(team.length > 0 ? team : defaultTeam).map((member, i) => {
+              {team.map((member, i) => {
                 const name = member.name || 'Team Member'
                 const initials = name.split(' ').map(n => n[0] || '').join('').slice(0, 2).toUpperCase() || 'TM'
                 return (

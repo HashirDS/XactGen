@@ -1,6 +1,10 @@
 import type { Metadata } from 'next'
 import ServicesClient from './ServicesClient'
 import { generateMetadata as genMeta } from '@/lib/seo'
+import { loadServices } from '@/lib/firestore-server'
+import { toBucket } from '@/lib/service-details'
+
+export const revalidate = 60
 
 export const metadata: Metadata = genMeta({
   title: 'AI & Machine Learning Services',
@@ -9,6 +13,7 @@ export const metadata: Metadata = genMeta({
   keywords: ['AI development services', 'machine learning services Pakistan', 'deep learning development', 'computer vision service', 'NLP services', 'data analytics company'],
 })
 
-export default function Page() {
-  return <ServicesClient />
+export default async function Page() {
+  const buckets = (await loadServices()).map(toBucket)
+  return <ServicesClient buckets={buckets} />
 }

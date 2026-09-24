@@ -1,4 +1,4 @@
-import { getBlogPostServer } from '@/lib/firestore-server'
+import { loadBlogPost } from '@/lib/firestore-server'
 import Navbar from '@/components/ui/Navbar'
 import Footer from '@/components/ui/Footer'
 import { generateMetadata as genMeta } from '@/lib/seo'
@@ -18,7 +18,7 @@ function tsToReadable(ts: any): string {
 }
 
 export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
-  const post = await getBlogPostServer(params.id).catch(() => null)
+  const post = await loadBlogPost(params.id).catch(() => null)
   if (!post || !post.published) return genMeta({ title: 'Article Not Found' })
   return genMeta({
     title: post.metaTitle || post.title,
@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: { params: { id: string } }): 
 }
 
 export default async function BlogPostPage({ params }: { params: { id: string } }) {
-  const post = await getBlogPostServer(params.id).catch(() => null)
+  const post = await loadBlogPost(params.id).catch(() => null)
   if (!post || !post.published) notFound()
 
   const html = marked.parse(post.content || '') as string

@@ -1,14 +1,13 @@
 import { MetadataRoute } from 'next'
-import { getBlogPostsServer, getProjectsServer } from '@/lib/firestore-server'
-import { serviceBuckets } from '@/lib/service-details'
+import { loadBlogPosts, loadProjects, loadServices } from '@/lib/firestore-server'
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://xactgen.com'
 
 // Regenerate hourly so newly published content appears in the sitemap
 export const revalidate = 3600
 
-function safeISO(ts: any, fallback: string): string {
-  try { return ts?.toDate ? ts.toDate().toISOString() : fallback } catch { return fallback }
+function safeISO(ms: any, fallback: string): string {
+  return typeof ms === 'number' ? new Date(ms).toISOString() : fallback
 }
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
@@ -26,7 +25,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   ]
 
   // Service detail pages come from our static content, not Firestore
-  const serviceEntries: MetadataRoute.Sitemap = serviceBuckets.map(b => ({
+  const services = await loadServices()
+  const serviceEntries: MetadataRoute.Sitemap = services.map(b => ({
     url: `${SITE_URL}/services/${b.slug}`,
     lastModified: now,
     changeFrequency: 'monthly',
@@ -35,8 +35,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   // Dynamic content — fail gracefully if Firestore is unreachable
   const [posts, projects] = await Promise.all([
-    getBlogPostsServer(true).catch(() => []),
-    getProjectsServer().catch(() => []),
+    loadBlogPosts(),
+    loadProjects(),
   ])
 
   const blogEntries: MetadataRoute.Sitemap = posts.map(p => ({

@@ -1,6 +1,9 @@
 import type { Metadata } from 'next'
 import AboutClient from './AboutClient'
 import { generateMetadata as genMeta } from '@/lib/seo'
+import { loadTeam } from '@/lib/firestore-server'
+
+export const revalidate = 60
 
 export const metadata: Metadata = genMeta({
   title: 'About XactGen: Our Team & Story',
@@ -9,6 +12,7 @@ export const metadata: Metadata = genMeta({
   keywords: ['about XactGen', 'AI company Pakistan', 'XactGen team', 'machine learning company Pakistan'],
 })
 
-export default function Page() {
-  return <AboutClient />
+export default async function Page() {
+  const team = await loadTeam()
+  return <AboutClient team={team} />
 }

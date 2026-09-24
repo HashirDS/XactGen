@@ -262,7 +262,7 @@ export function generateJsonLd(
       jobTitle: 'CEO',
       worksFor: { '@id': `${SITE_URL}/#organization` },
       knowsAbout: ['Artificial Intelligence', 'Data Science', 'Data Analytics'],
-      image: `${SITE_URL}/team/ashir-mehfooz.png`,
+      image: SITE.ceo.photo,
     }
   }
 

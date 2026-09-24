@@ -1,8 +1,7 @@
 'use client'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import Navbar from '@/components/ui/Navbar'
 import Footer from '@/components/ui/Footer'
-import { getBlogPosts } from '@/lib/firestore'
 import { BlogPost } from '@/types'
 import Link from 'next/link'
 import AnimatedSection from '@/components/ui/AnimatedSection'
@@ -10,21 +9,16 @@ import OrbitSpin from '@/components/effects/OrbitSpin'
 
 const categories = ['All', 'AI & ML', 'Data Science', 'Web Development', 'Business', 'Tutorials']
 
-function formatDate(ts: any) {
-  if (!ts) return ''
-  try { return ts.toDate().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }) }
-  catch { return '' }
+// createdAt arrives as epoch milliseconds from the server loader
+function formatDate(ms: any) {
+  if (typeof ms !== 'number') return ''
+  return new Date(ms).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })
 }
 
-export default function BlogClient() {
-  const [posts, setPosts] = useState<BlogPost[]>([])
-  const [loading, setLoading] = useState(true)
+export default function BlogClient({ posts }: { posts: BlogPost[] }) {
+  const loading = false
   const [activeCategory, setActiveCategory] = useState('All')
   const [search, setSearch] = useState('')
-
-  useEffect(() => {
-    getBlogPosts(true).then(setPosts).catch(console.error).finally(() => setLoading(false))
-  }, [])
 
   const filtered = posts.filter(p => {
     const matchCat = activeCategory === 'All' || p.category === activeCategory

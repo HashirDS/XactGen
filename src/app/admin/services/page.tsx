@@ -3,6 +3,8 @@ import { useEffect, useState } from 'react'
 import { getServices, addService, updateService, deleteService } from '@/lib/firestore'
 import { Service } from '@/types'
 import toast from 'react-hot-toast'
+import { iconOptions } from '@/lib/service-details'
+import { iconMap } from '@/components/ui/ServiceIcon'
 
 const emptyService: Omit<Service,'id'|'createdAt'> = {
  title:'', slug:'', shortDescription:'', fullDescription:'',
@@ -85,7 +87,7 @@ export default function AdminServicesPage() {
  <tr key={s.id} className="hover:bg-white/2 transition-colors">
  <td className="px-6 py-4">
  <div className="flex items-center gap-3">
- <span className="text-2xl">{s.icon}</span>
+ {(() => { const Icon = iconMap[s.icon as keyof typeof iconMap] || iconMap.ai; return <Icon className="w-6 h-6 text-aurora-cyan" /> })()}
  <div>
  <div className="font-medium text-white text-sm">{s.title}</div>
  <div className="text-xs text-slate-500">{s.slug}</div>
@@ -128,8 +130,11 @@ export default function AdminServicesPage() {
  <form onSubmit={handleSave} className="p-6 space-y-4">
  <div className="grid grid-cols-2 gap-4">
  <div>
- <label className="block text-sm text-slate-400 mb-1.5">Icon (emoji)</label>
- <input name="icon" value={form.icon} onChange={e=>setForm(p=>({...p,icon:e.target.value}))} className={ic} placeholder=""/>
+ <label className="block text-sm text-slate-400 mb-1.5">Icon</label>
+ <select name="icon" value={form.icon} onChange={e=>setForm(p=>({...p,icon:e.target.value}))} className={ic}>
+ <option value="">Choose an icon</option>
+ {iconOptions.map(o=><option key={o.key} value={o.key}>{o.label}</option>)}
+ </select>
  </div>
  <div>
  <label className="block text-sm text-slate-400 mb-1.5">Display Order</label>

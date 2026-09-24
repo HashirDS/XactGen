@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
 import Image from 'next/image'
 import toast from 'react-hot-toast'
+import SeedGate from './SeedGate'
 
 const navItems = [
   { href: '/admin', label: 'Dashboard', exact: true },
@@ -130,7 +131,7 @@ export default function AdminLayoutInner({ children }: { children: React.ReactNo
             </button>
           </div>
         </header>
-        <main className="flex-1 p-5 lg:p-8">{children}</main>
+        <main className="flex-1 p-5 lg:p-8"><SeedGate>{children}</SeedGate></main>
       </div>
     </div>
   )

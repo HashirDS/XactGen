@@ -1,4 +1,4 @@
-import { getProjectServer } from '@/lib/firestore-server'
+import { loadProject } from '@/lib/firestore-server'
 import Navbar from '@/components/ui/Navbar'
 import Footer from '@/components/ui/Footer'
 import { generateMetadata as genMeta } from '@/lib/seo'
@@ -7,7 +7,7 @@ import Link from 'next/link'
 import type { Metadata } from 'next'
 
 export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
-  const project = await getProjectServer(params.id).catch(() => null)
+  const project = await loadProject(params.id).catch(() => null)
   if (!project) return genMeta({ title: 'Project Not Found' })
   return genMeta({ title: project.title, description: project.description, path: `/projects/${params.id}` })
 }
@@ -19,7 +19,7 @@ function getYouTubeEmbedUrl(url: string): string | null {
 }
 
 export default async function ProjectDetailPage({ params }: { params: { id: string } }) {
-  const project = await getProjectServer(params.id).catch(() => null)
+  const project = await loadProject(params.id).catch(() => null)
   if (!project) notFound()
 
   const p = project as any

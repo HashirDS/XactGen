@@ -1,25 +1,16 @@
 'use client'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import Link from 'next/link'
 import Navbar from '@/components/ui/Navbar'
 import Footer from '@/components/ui/Footer'
-import { getProjects } from '@/lib/firestore'
 import { Project } from '@/types'
 import OrbitSpin from '@/components/effects/OrbitSpin'
 
 const categories = ['All', 'AI/ML', 'Web Development', 'Data Analytics', 'Automation', 'NLP']
 
-export default function ProjectsClient() {
-  const [projects, setProjects] = useState<Project[]>([])
-  const [loading, setLoading] = useState(true)
+export default function ProjectsClient({ projects }: { projects: Project[] }) {
+  const loading = false
   const [activeCategory, setActiveCategory] = useState('All')
-
-  useEffect(() => {
-    getProjects()
-      .then(setProjects)
-      .catch(console.error)
-      .finally(() => setLoading(false))
-  }, [])
 
   const filtered = activeCategory === 'All'
     ? projects

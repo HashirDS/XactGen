@@ -1,6 +1,9 @@
 import type { Metadata } from 'next'
 import BlogClient from './BlogClient'
 import { generateMetadata as genMeta } from '@/lib/seo'
+import { loadBlogPosts } from '@/lib/firestore-server'
+
+export const revalidate = 60
 
 export const metadata: Metadata = genMeta({
   title: 'Blog: AI, ML, and Data Science Insights',
@@ -9,6 +12,7 @@ export const metadata: Metadata = genMeta({
   keywords: ['XactGen blog', 'AI tutorials Pakistan', 'machine learning blog', 'data science articles', 'AI case studies'],
 })
 
-export default function Page() {
-  return <BlogClient />
+export default async function Page() {
+  const posts = await loadBlogPosts()
+  return <BlogClient posts={posts} />
 }

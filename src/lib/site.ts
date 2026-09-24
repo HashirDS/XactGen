@@ -16,6 +16,6 @@ export const SITE = {
   ceo: {
     name: 'Ashir Mehfooz',
     title: 'CEO, XactGen',
-    photo: '/team/ashir-mehfooz.png',
+    photo: 'https://raw.githubusercontent.com/datixai/datixaiweb-assets/main/datixaiwebassests/ashirpic.jpg',
   },
 }

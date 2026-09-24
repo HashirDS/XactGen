@@ -42,21 +42,11 @@ NEXT_PUBLIC_SITE_URL=https://xactgen.com
 
 `.env.local` is git-ignored. Never commit it.
 
-## 3. Add starter content (optional)
+## 3. Website content and the admin panel
 
-Fills the empty database with the services, team, portfolio projects and one blog post. Safe to run more than once.
+The site ships with built-in content (services, team, projects and blog posts) in `src/lib/default-content.ts`, so it looks complete before anything is in the database.
 
-```bash
-ADMIN_EMAIL=you@example.com ADMIN_PASSWORD=yourpassword node scripts/seed.js
-```
-
-On Windows PowerShell:
-
-```powershell
-$env:ADMIN_EMAIL="you@example.com"; $env:ADMIN_PASSWORD="yourpassword"; node scripts/seed.js
-```
-
-After that, manage everything from `/admin`: services, projects, blog, team, messages and settings.
+The first time the admin logs in at `/admin`, that content is copied into Firestore automatically. From then on the public pages read only from Firestore, so everything can be edited or deleted from the admin panel, and changes appear on the site within about a minute. This happens once; content the admin deletes is not added back.
 
 ## 4. Company details
 
@@ -100,8 +90,7 @@ src/
   app/              pages (home, services, projects, blog, about, contact, privacy, terms)
   app/admin/        admin panel (login, services, projects, blog, team, messages, settings, analytics)
   components/       UI, page sections, background effects (MilkyWay)
-  lib/              site.ts (company details), seo.ts, firebase.ts, firestore helpers
-scripts/seed.js     starter content for Firestore
+  lib/              site.ts (company details), default-content.ts (built-in content), seo.ts, firebase.ts, firestore helpers
 firestore.rules     database security rules
 ```
 

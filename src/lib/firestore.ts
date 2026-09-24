@@ -1,7 +1,8 @@
 import {
   collection, doc, getDocs, getDoc, addDoc, updateDoc, setDoc,
-  deleteDoc, query, orderBy, serverTimestamp, where, limit
+  deleteDoc, query, orderBy, serverTimestamp, where, limit, writeBatch, Timestamp
 } from 'firebase/firestore'
+import { defaultServices, defaultTeam, defaultProjects, defaultBlogPosts } from './default-content'
 import { db } from './firebase'
 import { Service, Project, Message, TeamMember, BlogPost } from '@/types'
 
@@ -116,4 +117,38 @@ export async function updateTeamMember(id: string, data: Partial<TeamMember>): P
 }
 export async function deleteTeamMember(id: string): Promise<void> {
   await deleteDoc(doc(db, 'team', id))
+}
+
+// ─── BUILT-IN CONTENT → FIRESTORE ────────────────────────────────────────────
+// Runs when the admin opens the panel. The first time, it copies the built-in
+// services, team, projects and blog posts (src/lib/default-content.ts) into
+// Firestore so they can be edited or deleted, then writes the
+// settings/content-seeded marker. It never runs again after that, so content
+// the admin deletes stays deleted. Collections that already have documents
+// are left untouched.
+export async function seedDefaultContent(): Promise<number> {
+  const marker = doc(db, 'settings', 'content-seeded')
+  if ((await getDoc(marker)).exists()) return 0
+
+  const sets: [string, { id: string }[]][] = [
+    ['services', defaultServices],
+    ['team', defaultTeam],
+    ['projects', defaultProjects],
+    ['blog', defaultBlogPosts],
+  ]
+  const batch = writeBatch(db)
+  const now = Date.now()
+  let added = 0
+  for (const [name, items] of sets) {
+    const existing = await getDocs(query(collection(db, name), limit(1)))
+    if (!existing.empty) continue
+    items.forEach(({ id, ...data }, i) => {
+      // Staggered dates keep the built-in order when lists sort newest first
+      batch.set(doc(db, name, id), { ...data, createdAt: Timestamp.fromMillis(now - i * 60_000) })
+      added++
+    })
+  }
+  batch.set(marker, { seededAt: serverTimestamp() })
+  await batch.commit()
+  return added
 }
