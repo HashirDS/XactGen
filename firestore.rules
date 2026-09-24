@@ -34,7 +34,6 @@ service cloud.firestore {
       allow read: if true;
       allow create: if isAdmin()
         && request.resource.data.data is string
-        && request.resource.data.data.matches('^data:image/.*')
         && request.resource.data.data.size() < 1000000;
       allow delete: if isAdmin();
     }
