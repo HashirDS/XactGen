@@ -1,8 +1,7 @@
 import type { Metadata } from 'next'
 import AboutClient from './AboutClient'
-import { generateMetadata as genMeta, generateJsonLd } from '@/lib/seo'
+import { generateMetadata as genMeta } from '@/lib/seo'
 import { loadTeam } from '@/lib/firestore-server'
-import { CEO_FAQS } from '@/lib/site'
 
 export const revalidate = 60
 
@@ -16,11 +15,5 @@ export const metadata: Metadata = genMeta({
 
 export default async function Page() {
   const team = await loadTeam()
-  const faqSchema = generateJsonLd('faq', { items: CEO_FAQS })
-  return (
-    <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
-      <AboutClient team={team} />
-    </>
-  )
+  return <AboutClient team={team} />
 }

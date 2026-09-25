@@ -141,10 +141,20 @@ export async function loadProjects(): Promise<Project[]> {
   )
 }
 
+const PROFILE_POST_DATE = Date.UTC(2026, 8, 26)
+
+function withBuiltinPosts(live: BlogPost[]): BlogPost[] {
+  const ids = new Set(live.map(p => p.id))
+  const extras = defaultBlogPosts
+    .filter(p => p.published && !ids.has(p.id))
+    .map(p => ({ ...p, createdAt: PROFILE_POST_DATE }) as BlogPost)
+  return [...extras, ...live]
+}
+
 export async function loadBlogPosts(): Promise<BlogPost[]> {
   return loadWithFallback(
-    async () => (await getBlogPostsServer(true)).map(plain),
-    defaultBlogPosts.filter(p => p.published).map(p => ({ ...p }) as BlogPost),
+    async () => withBuiltinPosts((await getBlogPostsServer(true)).map(plain)),
+    defaultBlogPosts.filter(p => p.published).map(p => ({ ...p, createdAt: PROFILE_POST_DATE }) as BlogPost),
   )
 }
 
@@ -156,8 +166,9 @@ export async function loadProject(id: string): Promise<Project | null> {
 }
 
 export async function loadBlogPost(id: string): Promise<BlogPost | null> {
+  const builtin = defaultBlogPosts.find(p => p.id === id)
   return loadWithFallback(
-    () => getBlogPostServer(id),
-    (defaultBlogPosts.find(p => p.id === id) as BlogPost) || null,
+    async () => (await getBlogPostServer(id)) || (builtin ? { ...builtin, createdAt: makeTimestamp(new Date(PROFILE_POST_DATE).toISOString()) } as BlogPost : null),
+    builtin ? { ...builtin, createdAt: makeTimestamp(new Date(PROFILE_POST_DATE).toISOString()) } as BlogPost : null,
   )
 }

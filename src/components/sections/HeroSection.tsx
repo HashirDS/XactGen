@@ -23,8 +23,8 @@ export default function HeroSection() {
           Smarter solutions for real-world problems, blending Artificial Intelligence, Data Science and next-generation technology.
         </p>
 
-        <p className="text-xs uppercase tracking-widest text-slate-500 mb-3">Who is the CEO of XactGen?</p>
-        <Link href="/about" className="inline-flex items-center gap-3 mb-12 text-left">
+        <p className="text-xs uppercase tracking-widest text-slate-500 mb-3">Founder and CEO</p>
+        <Link href="/blog/ashir-mehfooz-founder-ceo-xactgen" className="inline-flex items-center gap-3 mb-12 text-left">
           <img
             src="/team/ashir-mehfooz.jpg"
             alt={`${SITE.ceo.name}, CEO of XactGen`}

@@ -4,7 +4,7 @@ import HeroSection from '@/components/sections/HeroSection'
 import ServicesSection from '@/components/sections/ServicesSection'
 import ReviewsSection from '@/components/sections/ReviewsSection'
 import CTASection from '@/components/sections/CTASection'
-import { generateMetadata as genMeta, generateJsonLd } from '@/lib/seo'
+import { generateMetadata as genMeta } from '@/lib/seo'
 import type { Metadata } from 'next'
 import { loadServices } from '@/lib/firestore-server'
 import { toBucket } from '@/lib/service-details'
@@ -23,17 +23,8 @@ export const metadata: Metadata = genMeta({
 
 export default async function HomePage() {
   const buckets = (await loadServices()).map(toBucket)
-  const faqSchema = generateJsonLd('faq', {
-    items: [
-      {
-        q: 'Who is the CEO of XactGen?',
-        a: 'Ashir Mehfooz is the founder and CEO of XactGen and XactGen AI.',
-      },
-    ],
-  })
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <Navbar />
       <main>
         <HeroSection />

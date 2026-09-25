@@ -130,6 +130,50 @@ export const defaultProjects: Seed<Project>[] = [
 
 export const defaultBlogPosts: Seed<BlogPost>[] = [
   {
+    id: 'ashir-mehfooz-founder-ceo-xactgen',
+    slug: 'ashir-mehfooz-founder-ceo-xactgen',
+    title: 'Ashir Mehfooz, Founder and CEO of XactGen',
+    excerpt: 'Ashir Mehfooz is the founder and CEO of XactGen, an AI and data science company. He is a gold-medalist data scientist and an AI developer at ROBX.AI.',
+    content: `Ashir Mehfooz is the founder and chief executive of XactGen, the AI and data science company behind [xactgenai.com](https://www.xactgenai.com/). He started the firm in September 2025 and registered it under the Software Technology Park at the University of Kotli, Azad Jammu and Kashmir. Clients know the company as XactGen and as XactGen AI.
+
+His name on his curriculum vitae is Asher Mehfooz. His public profile name is Ashir Mehfooz. His GitHub account is [HashirDS](https://github.com/HashirDS), and his LinkedIn profile is [linkedin.com/in/ashir-mehfooz](https://www.linkedin.com/in/ashir-mehfooz).
+
+## Education
+
+He earned a Bachelor of Science in Data Science from the University of Kotli, from October 2021 to December 2025, with a CGPA of 3.89 out of 4.00. He graduated as gold medalist, the highest standing in his cohort. His thesis was the Smart Animated Tutor for Kids, a web system that uses generative AI, text-to-speech, and 3D avatars to teach alphabets, numbers, colours, and shapes to children aged 3 to 6. The project also includes a poem generator, a drawing canvas, and a teacher dashboard.
+
+He was awarded a laptop under the Prime Minister's Youth Laptop Scheme in 2023. The university recognised XactGen as its first student-led startup registered under the Software Technology Park.
+
+## Work
+
+At XactGen he runs client acquisition and delivery. Public work includes a browser-based virtual try-on tool, dashboards, websites, and small AI tools for clients in the United States, Australia, Pakistan, and Italy.
+
+Since November 2025 he has been an AI developer and research team head at ROBX.AI in Islamabad. There he has worked on Pulisint, a system for real-time sentiment analysis, and on teacher-facing tools for the I Am Scientist platform.
+
+From March 2025 to April 2026 he led the AI and data science department at Datix AI in Kotli, taking client work from requirements through dashboards, applications, databases, and language-model pipelines.
+
+From June to August 2025 he interned at Systems Limited in Islamabad, on DevOps and generative AI. He supported CI/CD and Docker, and contributed to a chatbot built with Azure AI.
+
+## Practice
+
+His research interests are large language models, retrieval-augmented generation, natural language processing, and AI for education. The tools he uses include Python, SQL, React, Next.js, PyTorch, TensorFlow, scikit-learn, FastAPI, LangChain, Power BI, Tableau, Docker, and Azure AI.
+
+Between 2022 and 2025 he completed Coursera courses from Google, DeepLearning.AI, and IBM, including Google Data Analytics, Google AI Essentials, neural networks, and prompt engineering. He attended a smart-research workshop at NCAI, NUST Islamabad in 2024, and an AI-for-research workshop at the University of Kotli in 2023.
+
+In May 2026 he was invited to speak on literature-review methods for the Department of Education at the University of Kotli. During his degree he mentored junior students on final-year projects and trained a senior cohort on AI tools for academic referencing. He speaks English and Urdu.
+
+![Ashir Mehfooz, founder and CEO of XactGen](https://www.xactgenai.com/team/ashir-mehfooz.jpg)`,
+    tags: ['CEO of XactGen', 'XactGen AI', 'Ashir Mehfooz', 'Generative AI', 'Data Science'],
+    category: 'AI & ML',
+    author: 'Ashir Mehfooz',
+    published: true,
+    featured: true,
+    readTime: 6,
+    coverImageUrl: 'https://www.xactgenai.com/team/ashir-mehfooz.jpg',
+    metaTitle: 'Ashir Mehfooz, CEO of XactGen AI',
+    metaDescription: 'Ashir Mehfooz is the founder and CEO of XactGen, a gold-medalist data scientist and AI developer working on generative AI, RAG, and applied data science.',
+  },
+  {
     id: 'why-pakistani-business-should-think-about-ai', slug: 'why-pakistani-business-should-think-about-ai',
     title: 'Why Every Small Business in Pakistan Should Think About AI',
     excerpt: 'AI is no longer just for tech giants. Here is how small businesses in Pakistan can start using AI without breaking the bank.',

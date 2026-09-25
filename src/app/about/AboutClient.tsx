@@ -5,7 +5,7 @@ import { TeamMember } from '@/types'
 import AnimatedSection from '@/components/ui/AnimatedSection'
 import Link from 'next/link'
 import OrbitSpin, { OrbitNode } from '@/components/effects/OrbitSpin'
-import { CEO_FAQS, NAME_LINE, SITE } from '@/lib/site'
+import { SITE } from '@/lib/site'
 
 const pillars = [
   { title: 'Our Mission', text: 'To be the forefront provider of innovative AI development solutions, shaping the future of intelligent technology.' },
@@ -117,21 +117,19 @@ export default function AboutClient({ team }: { team: TeamMember[] }) {
               className="w-48 sm:w-56 h-64 sm:h-72 object-cover object-top rounded-2xl mb-6 border border-white/10 mx-auto sm:mx-0"
             />
             <h2 className="font-display font-bold text-3xl sm:text-4xl text-white mb-4">
-              Who leads <span className="gradient-text">XactGen</span>
+              Leadership
             </h2>
-            <p className="text-slate-400 leading-relaxed mb-8">
+            <p className="text-slate-400 leading-relaxed mb-6">
               <a href={SITE.ceo.linkedin} className="text-white hover:text-aurora-cyan" rel="me">{SITE.ceo.name}</a> is the founder and CEO of XactGen.
-              His profiles are on <a href={SITE.ceo.linkedin} className="text-white hover:text-aurora-cyan" rel="me">LinkedIn</a> and <a href={SITE.github} className="text-white hover:text-aurora-cyan" rel="me">GitHub</a>.
-              {' '}{NAME_LINE}
+              He is a data scientist and AI developer, and a BS Data Science graduate of the University of Kotli.
             </p>
-            <div className="space-y-6">
-              {CEO_FAQS.map(item => (
-                <div key={item.q}>
-                  <h3 className="font-display font-semibold text-lg text-white mb-2">{item.q}</h3>
-                  <p className="text-slate-400 leading-relaxed">{item.a}</p>
-                </div>
-              ))}
-            </div>
+            <p className="text-sm">
+              <a href="/blog/ashir-mehfooz-founder-ceo-xactgen" className="text-white hover:text-aurora-cyan">Read his profile</a>
+              <span className="text-slate-500"> · </span>
+              <a href={SITE.ceo.linkedin} className="text-white hover:text-aurora-cyan" rel="me">LinkedIn</a>
+              <span className="text-slate-500"> · </span>
+              <a href={SITE.github} className="text-white hover:text-aurora-cyan" rel="me">GitHub</a>
+            </p>
           </AnimatedSection>
         </div>
 

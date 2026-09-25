@@ -263,13 +263,13 @@ export function generateJsonLd(
       name: SITE.ceo.name,
       alternateName: ['Asher Mehfooz', 'Hashir'],
       jobTitle: 'Founder and CEO',
-      description: 'Ashir Mehfooz is the founder and CEO of XactGen and an AI developer at ROBX.AI. He earned a BS in Data Science from the University of Kotli. Ashir Mehfooz is also spelled Asher Mehfooz. Hashir is the same person, and his GitHub username is HashirDS.',
+      description: 'Ashir Mehfooz is the founder and CEO of XactGen and an AI developer at ROBX.AI. He earned a BS in Data Science from the University of Kotli.',
       url: `${SITE_URL}/about`,
       image: {
         '@type': 'ImageObject',
         url: SITE.ceo.photo,
         contentUrl: SITE.ceo.photo,
-        caption: 'Photo of Ashir Mehfooz, also spelled Asher Mehfooz. Hashir is the same person.',
+        caption: 'Ashir Mehfooz, founder and CEO of XactGen',
       },
       worksFor: { '@id': `${SITE_URL}/#organization` },
       alumniOf: {
