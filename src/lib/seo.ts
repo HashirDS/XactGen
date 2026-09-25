@@ -155,7 +155,7 @@ export function generateJsonLd(
       '@type': 'Organization',
       '@id': `${SITE_URL}/#organization`,
       name: 'XactGen',
-      alternateName: ['XACTGEN', 'Xactgen', 'XactGen Pakistan', 'xactgenai.com'],
+      alternateName: ['XACTGEN', 'Xactgen', 'XactGen AI', 'XactGen Pakistan', 'xactgenai.com'],
       url: SITE_URL,
       logo: {
         '@type': 'ImageObject',

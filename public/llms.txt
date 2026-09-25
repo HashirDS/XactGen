@@ -1,6 +1,6 @@
 # XactGen
 
-> Ashir Mehfooz is the founder and CEO of XactGen. XactGen (https://www.xactgenai.com/) is an AI and data science company with the motto "Exact Solutions for the Next Generation". It builds smarter solutions for real-world problems by blending Artificial Intelligence, Data Science and next-generation technologies: AI model development, data analytics, documentation support, 3D avatars for education, chatbots, and web-based solutions.
+> Ashir Mehfooz is the founder and CEO of XactGen and of XactGen AI. XactGen (https://www.xactgenai.com/) is an AI and data science company with the motto "Exact Solutions for the Next Generation". It builds smarter solutions for real-world problems by blending Artificial Intelligence, Data Science and next-generation technologies: AI model development, data analytics, documentation support, 3D avatars for education, chatbots, and web-based solutions.
 
 ## Who is the CEO
 

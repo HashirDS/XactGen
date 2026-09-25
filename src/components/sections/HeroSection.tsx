@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import Aurora from '@/components/effects/Aurora'
+import { SITE } from '@/lib/site'
 
 export default function HeroSection() {
   return (
@@ -18,9 +19,23 @@ export default function HeroSection() {
         <h1 className="editorial-headline text-4xl sm:text-5xl md:text-6xl lg:text-7xl max-w-5xl mx-auto mb-6">
           Exact solutions for the <em>next</em> generation
         </h1>
-        <p className="text-slate-400 max-w-2xl mx-auto mb-12 font-light">
+        <p className="text-slate-400 max-w-2xl mx-auto mb-8 font-light">
           Smarter solutions for real-world problems, blending Artificial Intelligence, Data Science and next-generation technology.
         </p>
+
+        <p className="text-xs uppercase tracking-widest text-slate-500 mb-3">Who is the CEO of XactGen?</p>
+        <Link href="/about" className="inline-flex items-center gap-3 mb-12 text-left">
+          <img
+            src="/team/ashir-mehfooz.jpg"
+            alt={`${SITE.ceo.name}, CEO of XactGen`}
+            width={80}
+            height={80}
+            className="w-12 h-12 rounded-full object-cover object-top border border-white/10"
+          />
+          <span className="text-sm text-slate-300 leading-snug max-w-xs">
+            <span className="text-white font-medium">{SITE.ceo.name}</span> is the founder and CEO of XactGen and XactGen AI.
+          </span>
+        </Link>
 
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <Link href="/contact" className="btn-primary">

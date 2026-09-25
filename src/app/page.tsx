@@ -4,7 +4,7 @@ import HeroSection from '@/components/sections/HeroSection'
 import ServicesSection from '@/components/sections/ServicesSection'
 import ReviewsSection from '@/components/sections/ReviewsSection'
 import CTASection from '@/components/sections/CTASection'
-import { generateMetadata as genMeta } from '@/lib/seo'
+import { generateMetadata as genMeta, generateJsonLd } from '@/lib/seo'
 import type { Metadata } from 'next'
 import { loadServices } from '@/lib/firestore-server'
 import { toBucket } from '@/lib/service-details'
@@ -13,20 +13,27 @@ import { toBucket } from '@/lib/service-details'
 export const revalidate = 60
 
 export const metadata: Metadata = genMeta({
-  description: 'XactGen builds smarter solutions for real-world problems by blending Artificial Intelligence, Data Science and next-generation technology.',
+  description: 'Ashir Mehfooz is the founder and CEO of XactGen, an AI company. XactGen AI builds smarter solutions with Artificial Intelligence, Data Science and next-generation technology.',
   keywords: [
-    'AI company Pakistan', 'machine learning services', 'deep learning',
-    'computer vision', 'NLP', 'data analytics',
-    'AI development services', 'XactGen', 'XactGen Pakistan',
-    'generative AI services', 'MLOps', 'AI consulting',
+    'CEO of XactGen', 'XactGen AI', 'Ashir Mehfooz',
+    'AI company Pakistan', 'machine learning services',
+    'AI development services', 'XactGen',
   ],
 })
 
 export default async function HomePage() {
   const buckets = (await loadServices()).map(toBucket)
-  // Org and Website schema are emitted in the root layout; not duplicated here.
+  const faqSchema = generateJsonLd('faq', {
+    items: [
+      {
+        q: 'Who is the CEO of XactGen?',
+        a: 'Ashir Mehfooz is the founder and CEO of XactGen and XactGen AI.',
+      },
+    ],
+  })
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <Navbar />
       <main>
         <HeroSection />
