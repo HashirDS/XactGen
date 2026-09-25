@@ -1,6 +1,7 @@
 import { MetadataRoute } from 'next'
+import { SITE } from '@/lib/site'
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://xactgen.com'
+const SITE_URL = SITE.url
 
 // Note: we do NOT list /admin in disallow — that would publish the secret URL
 // to the world. Noindex for that path is enforced by metadata in

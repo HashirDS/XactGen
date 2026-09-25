@@ -42,11 +42,11 @@ export default function PrivacyPage() {
               },
               {
                 title: '6. Your Rights',
-                content: `You have the right to request access to, correction of, or deletion of your personal data. To exercise these rights, contact us via our contact form at xactgen.com/contact. We will respond within 30 days.`
+                content: `You have the right to request access to, correction of, or deletion of your personal data. To exercise these rights, contact us via our contact form at www.xactgenai.com/contact. We will respond within 30 days.`
               },
               {
                 title: '7. Contact Us',
-                content: `For any privacy-related questions, please use our contact form at xactgen.com/contact.`
+                content: `For any privacy-related questions, please use our contact form at www.xactgenai.com/contact.`
               },
             ].map(section => (
               <section key={section.title}>

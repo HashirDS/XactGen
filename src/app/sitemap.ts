@@ -1,7 +1,8 @@
 import { MetadataRoute } from 'next'
 import { loadBlogPosts, loadProjects, loadServices } from '@/lib/firestore-server'
+import { SITE } from '@/lib/site'
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://xactgen.com'
+const SITE_URL = SITE.url
 
 // Regenerate hourly so newly published content appears in the sitemap
 export const revalidate = 3600

@@ -46,7 +46,7 @@ export default function TermsPage() {
               },
               {
                 title: '7. Contact',
-                content: `For any questions about these terms, use our contact form at xactgen.com/contact.`
+                content: `For any questions about these terms, use our contact form at www.xactgenai.com/contact.`
               },
             ].map(section => (
               <section key={section.title}>

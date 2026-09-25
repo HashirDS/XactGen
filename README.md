@@ -37,7 +37,7 @@ NEXT_PUBLIC_FIREBASE_PROJECT_ID=xactgen
 NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=xactgen.appspot.com
 NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=...
 NEXT_PUBLIC_FIREBASE_APP_ID=...
-NEXT_PUBLIC_SITE_URL=https://xactgen.com
+NEXT_PUBLIC_SITE_URL=https://www.xactgenai.com
 ```
 
 `.env.local` is git-ignored. Never commit it.
@@ -78,7 +78,7 @@ Import the repository in Vercel, add the `NEXT_PUBLIC_*` environment variables i
 
 ### After deploying
 
-- In Firebase **Authentication > Settings > Authorized domains**, add your domain (for example `xactgen.com`).
+- In Firebase **Authentication > Settings > Authorized domains**, add your domain (for example `www.xactgenai.com`).
 - Submit `https://your-domain/sitemap.xml` in Google Search Console.
 
 ---

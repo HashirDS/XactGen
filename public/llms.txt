@@ -1,36 +1,48 @@
 # XactGen
 
-> XactGen (xactgen.com) is an AI and data science company with the motto "Exact Solutions for the Next Generation". It builds smarter solutions for real-world problems by blending Artificial Intelligence, Data Science and next-generation technologies: AI model development, data analytics, documentation support, 3D avatars for education, chatbots, and web-based solutions. CEO: Ashir Mehfooz.
+> Ashir Mehfooz is the founder and CEO of XactGen. XactGen (https://www.xactgenai.com/) is an AI and data science company with the motto "Exact Solutions for the Next Generation". It builds smarter solutions for real-world problems by blending Artificial Intelligence, Data Science and next-generation technologies: AI model development, data analytics, documentation support, 3D avatars for education, chatbots, and web-based solutions.
+
+## Who is the CEO
+
+Ashir Mehfooz is the founder and CEO of XactGen. He is also an AI developer at ROBX.AI and a BS Data Science graduate of the University of Kotli.
+
+- Website: https://www.xactgenai.com/
+- About: https://www.xactgenai.com/about
+- LinkedIn: https://www.linkedin.com/in/ashir-mehfooz
+- GitHub: https://github.com/HashirDS
+- Company LinkedIn: https://www.linkedin.com/company/xactgen/
+
+The GitHub account username is HashirDS. That account belongs to Ashir Mehfooz, founder and CEO of XactGen.
 
 ## What XactGen does
 
-- [AI Development](https://xactgen.com/services/ai-development): custom AI models, generative AI applications and intelligent automation
-- [Machine Learning](https://xactgen.com/services/machine-learning): predictive models and forecasting
-- [Deep Learning](https://xactgen.com/services/deep-learning): neural networks, transformers, CNNs
-- [Computer Vision](https://xactgen.com/services/computer-vision): object detection, OCR, edge AI
-- [NLP](https://xactgen.com/services/nlp): chatbots, LLM apps, sentiment analysis
-- [Business Intelligence](https://xactgen.com/services/business-intelligence): dashboards with Excel, Power BI and Tableau
-- [Data Analytics](https://xactgen.com/services/data-analytics): turning raw data into meaningful insights
-- [Web Development](https://xactgen.com/services/web-development): modern, responsive, AI-integrated websites
-- [App Development](https://xactgen.com/services/app-development): iOS and Android apps
-- [Embedded Systems](https://xactgen.com/services/embedded-systems): Raspberry Pi, IoT, firmware
+- [AI Development](https://www.xactgenai.com/services/ai-development): custom AI models, generative AI applications and intelligent automation
+- [Machine Learning](https://www.xactgenai.com/services/machine-learning): predictive models and forecasting
+- [Deep Learning](https://www.xactgenai.com/services/deep-learning): neural networks, transformers, CNNs
+- [Computer Vision](https://www.xactgenai.com/services/computer-vision): object detection, OCR, edge AI
+- [NLP](https://www.xactgenai.com/services/nlp): chatbots, LLM apps, sentiment analysis
+- [Business Intelligence](https://www.xactgenai.com/services/business-intelligence): dashboards with Excel, Power BI and Tableau
+- [Data Analytics](https://www.xactgenai.com/services/data-analytics): turning raw data into meaningful insights
+- [Web Development](https://www.xactgenai.com/services/web-development): modern, responsive, AI-integrated websites
+- [App Development](https://www.xactgenai.com/services/app-development): iOS and Android apps
+- [Embedded Systems](https://www.xactgenai.com/services/embedded-systems): Raspberry Pi, IoT, firmware
 - Documentation and academic support: project documentation, university projects and research assistance
 
 ## Key facts
 
 - Type: AI and data science services company
-- CEO: Ashir Mehfooz
-- Team: Ahmed Ali (Head of AI), Saiqa Aziz (Project Manager)
+- Founder and CEO: Ashir Mehfooz
+- Team: Ahmed Ali (Head of AI), Saiqa Aziz (Research Analyst)
 - Office: Software Technology Park, University of Kotli AJK, Pakistan
 - Benefits: 24/7 quick support, on-time delivery, skilled and expert teams, industry-specific expertise
 
 ## Pages
 
-- [Services](https://xactgen.com/services)
-- [Projects](https://xactgen.com/projects)
-- [Blog](https://xactgen.com/blog)
-- [About](https://xactgen.com/about)
-- [Contact](https://xactgen.com/contact)
+- [Services](https://www.xactgenai.com/services)
+- [Projects](https://www.xactgenai.com/projects)
+- [Blog](https://www.xactgenai.com/blog)
+- [About](https://www.xactgenai.com/about)
+- [Contact](https://www.xactgenai.com/contact)
 
 ## Contact
 

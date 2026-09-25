@@ -5,7 +5,8 @@
 export const SITE = {
   name: 'XactGen',
   tagline: 'Exact Solutions for the Next Generation',
-  url: process.env.NEXT_PUBLIC_SITE_URL || 'https://xactgen.com',
+  // Keep this host fixed. xactgen.com is a different company, so an old env value must not become the canonical URL.
+  url: 'https://www.xactgenai.com',
   email: 'contact@datixai.com',
   phoneDisplay: '+92 304 9111104',
   phoneIntl: '+92-304-9111104',
@@ -16,10 +17,23 @@ export const SITE = {
   mapsQuery: 'Software+Technology+Park,+University+of+Kotli,+AJK,+Pakistan',
   ceo: {
     name: 'Ashir Mehfooz',
-    title: 'CEO, XactGen',
-    photo: 'https://raw.githubusercontent.com/datixai/datixaiweb-assets/main/datixaiwebassests/ashirnewpic.jpeg',
+    title: 'Founder and CEO, XactGen',
+    linkedin: 'https://www.linkedin.com/in/ashir-mehfooz',
+    photo: 'https://www.xactgenai.com/team/ashir-mehfooz.jpg',
   },
 }
+
+/** Visible answers. Structured data must repeat these sentences, not a different version. */
+export const CEO_FAQS = [
+  {
+    q: 'Who is the CEO of XactGen?',
+    a: 'Ashir Mehfooz is the founder and CEO of XactGen. The company website is https://www.xactgenai.com/.',
+  },
+  {
+    q: 'Who is Ashir Mehfooz?',
+    a: 'Ashir Mehfooz is the founder and CEO of XactGen and an AI developer at ROBX.AI. He earned a BS in Data Science from the University of Kotli. His LinkedIn profile is https://www.linkedin.com/in/ashir-mehfooz and his GitHub profile is https://github.com/HashirDS.',
+  },
+]
 
 /**
  * Link that opens a new email in Gmail (in a new tab) with the address filled

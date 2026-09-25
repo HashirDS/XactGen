@@ -1,18 +1,25 @@
 import type { Metadata } from 'next'
 import AboutClient from './AboutClient'
-import { generateMetadata as genMeta } from '@/lib/seo'
+import { generateMetadata as genMeta, generateJsonLd } from '@/lib/seo'
 import { loadTeam } from '@/lib/firestore-server'
+import { CEO_FAQS } from '@/lib/site'
 
 export const revalidate = 60
 
 export const metadata: Metadata = genMeta({
   title: 'About XactGen: Our Team & Story',
-  description: 'Learn about XactGen, led by CEO Ashir Mehfooz: an AI and data science company building smart solutions for real-world problems from Kotli, AJK, Pakistan.',
+  description: 'Ashir Mehfooz is the founder and CEO of XactGen (xactgenai.com), an AI and data science company in Kotli, Azad Jammu and Kashmir, Pakistan.',
   path: '/about',
-  keywords: ['about XactGen', 'AI company Pakistan', 'XactGen team', 'machine learning company Pakistan'],
+  keywords: ['Ashir Mehfooz', 'CEO of XactGen', 'about XactGen', 'XactGen team'],
 })
 
 export default async function Page() {
   const team = await loadTeam()
-  return <AboutClient team={team} />
+  const faqSchema = generateJsonLd('faq', { items: CEO_FAQS })
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <AboutClient team={team} />
+    </>
+  )
 }

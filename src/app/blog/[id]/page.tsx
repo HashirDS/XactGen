@@ -6,6 +6,7 @@ import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { marked } from 'marked'
 import type { Metadata } from 'next'
+import { SITE } from '@/lib/site'
 
 // Render markdown with sensible defaults
 marked.setOptions({ breaks: true, gfm: true })
@@ -48,9 +49,9 @@ export default async function BlogPostPage({ params }: { params: { id: string } 
     publisher: {
       '@type': 'Organization',
       name: 'XactGen',
-      logo: { '@type': 'ImageObject', url: 'https://xactgen.com/logo.png' },
+      logo: { '@type': 'ImageObject', url: `${SITE.url}/logo.png` },
     },
-    mainEntityOfPage: { '@type': 'WebPage', '@id': `https://xactgen.com/blog/${params.id}` },
+    mainEntityOfPage: { '@type': 'WebPage', '@id': `${SITE.url}/blog/${params.id}` },
     keywords: (post.tags || []).join(', '),
   }
 

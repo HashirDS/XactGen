@@ -5,7 +5,7 @@ import { TeamMember } from '@/types'
 import AnimatedSection from '@/components/ui/AnimatedSection'
 import Link from 'next/link'
 import OrbitSpin, { OrbitNode } from '@/components/effects/OrbitSpin'
-import { SITE } from '@/lib/site'
+import { CEO_FAQS, SITE } from '@/lib/site'
 
 const pillars = [
   { title: 'Our Mission', text: 'To be the forefront provider of innovative AI development solutions, shaping the future of intelligent technology.' },
@@ -105,6 +105,26 @@ export default function AboutClient({ team }: { team: TeamMember[] }) {
               </AnimatedSection>
             ))}
           </div>
+        </div>
+
+        <div className="container-custom mb-24">
+          <AnimatedSection className="max-w-3xl mx-auto">
+            <h2 className="font-display font-bold text-3xl sm:text-4xl text-white mb-4">
+              Who leads <span className="gradient-text">XactGen</span>
+            </h2>
+            <p className="text-slate-400 leading-relaxed mb-8">
+              <a href={SITE.ceo.linkedin} className="text-white hover:text-aurora-cyan" rel="me">{SITE.ceo.name}</a> is the founder and CEO of XactGen.
+              His profiles are on <a href={SITE.ceo.linkedin} className="text-white hover:text-aurora-cyan" rel="me">LinkedIn</a> and <a href={SITE.github} className="text-white hover:text-aurora-cyan" rel="me">GitHub</a>.
+            </p>
+            <div className="space-y-6">
+              {CEO_FAQS.map(item => (
+                <div key={item.q}>
+                  <h3 className="font-display font-semibold text-lg text-white mb-2">{item.q}</h3>
+                  <p className="text-slate-400 leading-relaxed">{item.a}</p>
+                </div>
+              ))}
+            </div>
+          </AnimatedSection>
         </div>
 
         {/* Team — dynamic from Firebase */}

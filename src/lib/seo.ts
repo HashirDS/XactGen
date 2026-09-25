@@ -20,7 +20,7 @@ const SITE_URL = SITE.url
 const SITE_NAME = 'XactGen'
 const DEFAULT_TITLE = 'XactGen | Exact Solutions for the Next Generation'
 const DEFAULT_DESCRIPTION =
-  'XactGen is an AI and data science company building smart solutions for real-world problems: AI model development, data analytics, web and app development, and documentation and academic support.'
+  'XactGen, led by founder and CEO Ashir Mehfooz, is an AI and data science company building smart solutions for real-world problems: AI model development, data analytics, web and app development, and documentation and academic support.'
 
 // Kotli, Azad Kashmir, Pakistan
 const GEO = {
@@ -77,6 +77,8 @@ const KEYWORDS_CORE = [
   'AI company Islamabad',
   'AI company Mirpur',
   'XactGen',
+  'Ashir Mehfooz',
+  'CEO of XactGen',
 ]
 
 export function generateMetadata({
@@ -153,7 +155,7 @@ export function generateJsonLd(
       '@type': 'Organization',
       '@id': `${SITE_URL}/#organization`,
       name: 'XactGen',
-      alternateName: ['XACTGEN', 'Xactgen', 'XactGen Pakistan'],
+      alternateName: ['XACTGEN', 'Xactgen', 'XactGen Pakistan', 'xactgenai.com'],
       url: SITE_URL,
       logo: {
         '@type': 'ImageObject',
@@ -164,7 +166,7 @@ export function generateJsonLd(
       image: `${SITE_URL}/og-image.png`,
       description: DEFAULT_DESCRIPTION,
       slogan: 'Exact Solutions for the Next Generation',
-      founder: { '@id': `${SITE_URL}/#founder` },
+      founder: { '@id': `${SITE_URL}/#founder`, name: SITE.ceo.name },
       address: {
         '@type': 'PostalAddress',
         streetAddress: GEO.streetAddress,
@@ -258,11 +260,20 @@ export function generateJsonLd(
       '@context': 'https://schema.org',
       '@type': 'Person',
       '@id': `${SITE_URL}/#founder`,
-      name: 'Ashir Mehfooz',
-      jobTitle: 'CEO',
-      worksFor: { '@id': `${SITE_URL}/#organization` },
-      knowsAbout: ['Artificial Intelligence', 'Data Science', 'Data Analytics'],
+      name: SITE.ceo.name,
+      alternateName: ['Asher Mehfooz'],
+      jobTitle: 'Founder and CEO',
+      description: 'Ashir Mehfooz is the founder and CEO of XactGen and an AI developer at ROBX.AI. He earned a BS in Data Science from the University of Kotli.',
+      url: `${SITE_URL}/about`,
       image: SITE.ceo.photo,
+      worksFor: { '@id': `${SITE_URL}/#organization` },
+      alumniOf: {
+        '@type': 'CollegeOrUniversity',
+        name: 'University of Kotli',
+        address: 'Kotli, Azad Jammu and Kashmir, Pakistan',
+      },
+      sameAs: [SITE.ceo.linkedin, SITE.github],
+      knowsAbout: ['Artificial Intelligence', 'Data Science', 'Large Language Models', 'Retrieval-Augmented Generation'],
     }
   }
 
