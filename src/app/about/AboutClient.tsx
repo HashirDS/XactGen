@@ -5,7 +5,7 @@ import { TeamMember } from '@/types'
 import AnimatedSection from '@/components/ui/AnimatedSection'
 import Link from 'next/link'
 import OrbitSpin, { OrbitNode } from '@/components/effects/OrbitSpin'
-import { CEO_FAQS, SITE } from '@/lib/site'
+import { CEO_FAQS, NAME_LINE, SITE } from '@/lib/site'
 
 const pillars = [
   { title: 'Our Mission', text: 'To be the forefront provider of innovative AI development solutions, shaping the future of intelligent technology.' },
@@ -111,7 +111,7 @@ export default function AboutClient({ team }: { team: TeamMember[] }) {
           <AnimatedSection className="max-w-3xl mx-auto text-center sm:text-left">
             <img
               src="/team/ashir-mehfooz.jpg"
-              alt="Ashir Mehfooz, founder and CEO of XactGen"
+              alt={SITE.ceo.photoAlt}
               width={480}
               height={640}
               className="w-48 sm:w-56 h-64 sm:h-72 object-cover object-top rounded-2xl mb-6 border border-white/10 mx-auto sm:mx-0"
@@ -122,6 +122,7 @@ export default function AboutClient({ team }: { team: TeamMember[] }) {
             <p className="text-slate-400 leading-relaxed mb-8">
               <a href={SITE.ceo.linkedin} className="text-white hover:text-aurora-cyan" rel="me">{SITE.ceo.name}</a> is the founder and CEO of XactGen.
               His profiles are on <a href={SITE.ceo.linkedin} className="text-white hover:text-aurora-cyan" rel="me">LinkedIn</a> and <a href={SITE.github} className="text-white hover:text-aurora-cyan" rel="me">GitHub</a>.
+              {' '}{NAME_LINE}
             </p>
             <div className="space-y-6">
               {CEO_FAQS.map(item => (
