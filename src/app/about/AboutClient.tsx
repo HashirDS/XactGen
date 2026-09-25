@@ -107,32 +107,6 @@ export default function AboutClient({ team }: { team: TeamMember[] }) {
           </div>
         </div>
 
-        <div className="container-custom mb-24">
-          <AnimatedSection className="max-w-3xl mx-auto text-center sm:text-left">
-            <img
-              src="/team/ashir-mehfooz.jpg"
-              alt={SITE.ceo.photoAlt}
-              width={480}
-              height={640}
-              className="w-48 sm:w-56 h-64 sm:h-72 object-cover object-top rounded-2xl mb-6 border border-white/10 mx-auto sm:mx-0"
-            />
-            <h2 className="font-display font-bold text-3xl sm:text-4xl text-white mb-4">
-              Leadership
-            </h2>
-            <p className="text-slate-400 leading-relaxed mb-6">
-              <a href={SITE.ceo.linkedin} className="text-white hover:text-aurora-cyan" rel="me">{SITE.ceo.name}</a> is the founder and CEO of XactGen.
-              He is a data scientist and AI developer, and a BS Data Science graduate of the University of Kotli.
-            </p>
-            <p className="text-sm">
-              <a href="/blog/ashir-mehfooz-founder-ceo-xactgen" className="text-white hover:text-aurora-cyan">Read his profile</a>
-              <span className="text-slate-500"> · </span>
-              <a href={SITE.ceo.linkedin} className="text-white hover:text-aurora-cyan" rel="me">LinkedIn</a>
-              <span className="text-slate-500"> · </span>
-              <a href={SITE.github} className="text-white hover:text-aurora-cyan" rel="me">GitHub</a>
-            </p>
-          </AnimatedSection>
-        </div>
-
         {/* Team — dynamic from Firebase */}
         <div className="container-custom mb-24">
           <AnimatedSection className="text-center mb-14">

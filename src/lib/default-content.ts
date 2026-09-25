@@ -160,16 +160,14 @@ His research interests are large language models, retrieval-augmented generation
 
 Between 2022 and 2025 he completed Coursera courses from Google, DeepLearning.AI, and IBM, including Google Data Analytics, Google AI Essentials, neural networks, and prompt engineering. He attended a smart-research workshop at NCAI, NUST Islamabad in 2024, and an AI-for-research workshop at the University of Kotli in 2023.
 
-In May 2026 he was invited to speak on literature-review methods for the Department of Education at the University of Kotli. During his degree he mentored junior students on final-year projects and trained a senior cohort on AI tools for academic referencing. He speaks English and Urdu.
-
-![Ashir Mehfooz, founder and CEO of XactGen](https://www.xactgenai.com/team/ashir-mehfooz.jpg)`,
+In May 2026 he was invited to speak on literature-review methods for the Department of Education at the University of Kotli. During his degree he mentored junior students on final-year projects and trained a senior cohort on AI tools for academic referencing. He speaks English and Urdu.`,
     tags: ['CEO of XactGen', 'XactGen AI', 'Ashir Mehfooz', 'Generative AI', 'Data Science'],
     category: 'AI & ML',
     author: 'Ashir Mehfooz',
     published: true,
     featured: true,
     readTime: 6,
-    coverImageUrl: 'https://www.xactgenai.com/team/ashir-mehfooz.jpg',
+    coverImageUrl: '',
     metaTitle: 'Ashir Mehfooz, CEO of XactGen AI',
     metaDescription: 'Ashir Mehfooz is the founder and CEO of XactGen, a gold-medalist data scientist and AI developer working on generative AI, RAG, and applied data science.',
   },
