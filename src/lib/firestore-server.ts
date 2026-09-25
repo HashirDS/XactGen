@@ -147,14 +147,14 @@ function withBuiltinPosts(live: BlogPost[]): BlogPost[] {
   const ids = new Set(live.map(p => p.id))
   const extras = defaultBlogPosts
     .filter(p => p.published && !ids.has(p.id))
-    .map(p => ({ ...p, createdAt: PROFILE_POST_DATE }) as BlogPost)
+    .map(p => ({ ...p, createdAt: PROFILE_POST_DATE } as unknown as BlogPost))
   return [...extras, ...live]
 }
 
 export async function loadBlogPosts(): Promise<BlogPost[]> {
   return loadWithFallback(
     async () => withBuiltinPosts((await getBlogPostsServer(true)).map(plain)),
-    defaultBlogPosts.filter(p => p.published).map(p => ({ ...p, createdAt: PROFILE_POST_DATE }) as BlogPost),
+    defaultBlogPosts.filter(p => p.published).map(p => ({ ...p, createdAt: PROFILE_POST_DATE } as unknown as BlogPost)),
   )
 }
 
