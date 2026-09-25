@@ -265,7 +265,12 @@ export function generateJsonLd(
       jobTitle: 'Founder and CEO',
       description: 'Ashir Mehfooz is the founder and CEO of XactGen and an AI developer at ROBX.AI. He earned a BS in Data Science from the University of Kotli.',
       url: `${SITE_URL}/about`,
-      image: SITE.ceo.photo,
+      image: {
+        '@type': 'ImageObject',
+        url: SITE.ceo.photo,
+        contentUrl: SITE.ceo.photo,
+        caption: 'Ashir Mehfooz, founder and CEO of XactGen',
+      },
       worksFor: { '@id': `${SITE_URL}/#organization` },
       alumniOf: {
         '@type': 'CollegeOrUniversity',

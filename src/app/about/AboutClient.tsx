@@ -108,7 +108,14 @@ export default function AboutClient({ team }: { team: TeamMember[] }) {
         </div>
 
         <div className="container-custom mb-24">
-          <AnimatedSection className="max-w-3xl mx-auto">
+          <AnimatedSection className="max-w-3xl mx-auto text-center sm:text-left">
+            <img
+              src="/team/ashir-mehfooz.jpg"
+              alt="Ashir Mehfooz, founder and CEO of XactGen"
+              width={480}
+              height={640}
+              className="w-48 sm:w-56 h-64 sm:h-72 object-cover object-top rounded-2xl mb-6 border border-white/10 mx-auto sm:mx-0"
+            />
             <h2 className="font-display font-bold text-3xl sm:text-4xl text-white mb-4">
               Who leads <span className="gradient-text">XactGen</span>
             </h2>
