@@ -6,7 +6,7 @@ import { loadTeam } from '@/lib/firestore-server'
 export const revalidate = 60
 
 export const metadata: Metadata = genMeta({
-  title: 'About XactGen: Our Team & Story',
+  title: 'About XactGen AI: Our Team & Story',
   description: 'Ashir Mehfooz is the founder and CEO of XactGen (xactgenai.com), an AI and data science company in Kotli, Azad Jammu and Kashmir, Pakistan.',
   path: '/about',
   image: 'https://www.xactgenai.com/team/ashir-mehfooz.jpg',

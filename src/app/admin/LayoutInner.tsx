@@ -61,9 +61,9 @@ export default function AdminLayoutInner({ children }: { children: React.ReactNo
           <div className="absolute -top-8 -left-8 w-48 h-24 bg-aurora-violet/15 blur-3xl pointer-events-none" />
           <div className="relative p-5">
             <Link href="/" className="flex items-center gap-3">
-              <Image src="/brand/mark.png" alt="XactGen" width={32} height={32} className="object-contain" style={{ filter: 'drop-shadow(0 0 8px rgba(168, 85, 247, 0.35))' }} />
+              <Image src="/brand/mark.png" alt="XactGen AI" width={32} height={32} className="object-contain" style={{ filter: 'drop-shadow(0 0 8px rgba(168, 85, 247, 0.35))' }} />
               <div>
-                <div className="font-display font-semibold text-sm text-white tracking-tight">Xact<span className="text-aurora-violet">Gen</span></div>
+                <div className="font-display font-semibold text-sm text-white tracking-tight whitespace-nowrap">XactGen<span className="text-aurora-violet"> AI</span></div>
                 <div className="text-xs text-slate-500">Admin Panel</div>
               </div>
             </Link>

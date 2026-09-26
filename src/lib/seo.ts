@@ -17,8 +17,8 @@ import { SITE } from '@/lib/site'
  */
 
 const SITE_URL = SITE.url
-const SITE_NAME = 'XactGen'
-const DEFAULT_TITLE = 'XactGen | Exact Solutions for the Next Generation'
+const SITE_NAME = 'XactGen AI'
+const DEFAULT_TITLE = 'XactGen AI | Exact Solutions for the Next Generation'
 const DEFAULT_DESCRIPTION =
   'XactGen, led by founder and CEO Ashir Mehfooz, is an AI and data science company building smart solutions for real-world problems: AI model development, data analytics, web and app development, and documentation and academic support.'
 
@@ -154,8 +154,8 @@ export function generateJsonLd(
       '@context': 'https://schema.org',
       '@type': 'Organization',
       '@id': `${SITE_URL}/#organization`,
-      name: 'XactGen',
-      alternateName: ['XACTGEN', 'Xactgen', 'XactGen AI', 'XactGen Pakistan', 'xactgenai.com'],
+      name: 'XactGen AI',
+      alternateName: ['XactGen', 'XACTGEN', 'Xactgen', 'XactGen Pakistan', 'xactgenai.com'],
       url: SITE_URL,
       logo: {
         '@type': 'ImageObject',
@@ -209,7 +209,8 @@ export function generateJsonLd(
       '@context': 'https://schema.org',
       '@type': 'ProfessionalService',
       '@id': `${SITE_URL}/#localbusiness`,
-      name: 'XactGen',
+      name: 'XactGen AI',
+      alternateName: 'XactGen',
       description: DEFAULT_DESCRIPTION,
       url: SITE_URL,
       logo: `${SITE_URL}/logo.png`,

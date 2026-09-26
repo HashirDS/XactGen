@@ -15,10 +15,10 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-12">
           {/* Brand */}
           <div>
-            <Link href="/" className="flex items-center gap-2.5 mb-5" aria-label="XactGen home">
-              <Image src="/brand/mark.png" alt="XactGen" width={38} height={38} className="object-contain" />
-              <span className="font-display font-semibold text-white text-lg tracking-tight">
-                Xact<span className="text-aurora-violet">Gen</span>
+            <Link href="/" className="flex items-center gap-2.5 mb-5" aria-label="XactGen AI home">
+              <Image src="/brand/mark.png" alt="XactGen AI" width={38} height={38} className="object-contain" />
+              <span className="font-display font-semibold text-white text-lg tracking-tight whitespace-nowrap">
+                XactGen<span className="text-aurora-violet"> AI</span>
               </span>
             </Link>
             <p className="text-slate-400 text-sm leading-relaxed mb-6 max-w-xs font-light">
@@ -113,7 +113,7 @@ export default function Footer() {
         </div>
 
         <div className="pt-8 border-t border-white/[0.05] flex flex-col md:flex-row justify-between items-center gap-3">
-          <p className="text-slate-500 text-xs">© {year} XactGen. All rights reserved.</p>
+          <p className="text-slate-500 text-xs">© {year} XactGen AI. All rights reserved.</p>
           <p className="text-slate-500 text-xs">
             Developed by{' '}
             <a href="https://datixai.com" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-aurora-cyan transition-colors">

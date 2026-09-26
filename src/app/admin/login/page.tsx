@@ -63,11 +63,11 @@ export default function AdminLoginPage() {
           <div className="relative w-20 h-20 mx-auto mb-5">
             <div className="absolute inset-0 rounded-full bg-aurora-cyan/15 blur-2xl" />
             <div className="relative w-full h-full rounded-full bg-gradient-to-br from-space-700 to-space-900 border border-aurora-cyan/25 flex items-center justify-center">
-              <Image src="/brand/mark.png" alt="XactGen" width={40} height={40} className="object-contain"
+              <Image src="/brand/mark.png" alt="XactGen AI" width={40} height={40} className="object-contain"
                 style={{ filter: 'drop-shadow(0 0 8px rgba(168, 85, 247, 0.35))' }} />
             </div>
           </div>
-          <h1 className="font-display font-semibold text-2xl text-white tracking-tight">Xact<span className="text-aurora-violet">Gen</span></h1>
+          <h1 className="font-display font-semibold text-2xl text-white tracking-tight">XactGen<span className="text-aurora-violet"> AI</span></h1>
           <p className="text-slate-500 text-sm mt-1">Admin Dashboard</p>
         </div>
 

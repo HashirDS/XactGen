@@ -36,17 +36,17 @@ export default function Navbar() {
       }`}
     >
       <div className="container-custom flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2.5 group" aria-label="XactGen home">
+        <Link href="/" className="flex items-center gap-2.5 group" aria-label="XactGen AI home">
           <Image
             src="/brand/mark.png"
-            alt="XactGen"
+            alt="XactGen AI"
             width={34}
             height={34}
             priority
             className="object-contain transition-transform group-hover:scale-105"
           />
-          <span className="font-display font-semibold text-white text-[15px] leading-none tracking-tight">
-            Xact<span className="text-aurora-violet">Gen</span>
+          <span className="font-display font-semibold text-white text-[15px] leading-none tracking-tight whitespace-nowrap">
+            XactGen<span className="text-aurora-violet"> AI</span>
           </span>
         </Link>
 
