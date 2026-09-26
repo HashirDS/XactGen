@@ -88,7 +88,7 @@ export default function Footer() {
             </p>
             <div className="rounded-xl overflow-hidden border border-white/[0.06] mb-3" style={{ height: '150px' }}>
               <iframe
-                src={`https://maps.google.com/maps?q=${SITE.mapsQuery}&t=&z=16&ie=UTF8&iwloc=&output=embed`}
+                src={`https://maps.google.com/maps?q=${SITE.mapsQuery}&t=&z=17&ie=UTF8&iwloc=&output=embed`}
                 width="100%"
                 height="150"
                 style={{ border: 0, filter: 'invert(90%) hue-rotate(180deg) saturate(0.85)', display: 'block' }}

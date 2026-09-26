@@ -14,7 +14,8 @@ export const SITE = {
   linkedin: 'https://www.linkedin.com/company/xactgen/',
   github: 'https://github.com/HashirDS',
   address: 'Software Technology Park, University of Kotli AJK, Pakistan',
-  mapsQuery: 'Software+Technology+Park,+University+of+Kotli,+AJK,+Pakistan',
+  // Exact pin saved on the XactGen AI Business Profile, not the university label.
+  mapsQuery: '33.4856725,73.9031222',
   ceo: {
     name: 'Ashir Mehfooz',
     title: 'Founder and CEO, XactGen',

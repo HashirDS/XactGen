@@ -24,8 +24,8 @@ const DEFAULT_DESCRIPTION =
 
 // Kotli, Azad Kashmir, Pakistan
 const GEO = {
-  latitude: 33.5183,
-  longitude: 73.8994,
+  latitude: 33.4856725,
+  longitude: 73.9031222,
   city: 'Kotli',
   region: 'Azad Jammu & Kashmir',
   regionCode: 'AJK',
