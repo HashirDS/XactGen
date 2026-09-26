@@ -20,7 +20,7 @@ const SITE_URL = SITE.url
 const SITE_NAME = 'XactGen AI'
 const DEFAULT_TITLE = 'XactGen AI | Exact Solutions for the Next Generation'
 const DEFAULT_DESCRIPTION =
-  'XactGen, led by founder and CEO Ashir Mehfooz, is an AI and data science company building smart solutions for real-world problems: AI model development, data analytics, web and app development, and documentation and academic support.'
+  'XactGen AI builds AI software, machine learning tools, data analytics, chatbots, dashboards, and websites from the Software Technology Park in Kotli, AJK.'
 
 // Kotli, Azad Kashmir, Pakistan
 const GEO = {
@@ -77,8 +77,7 @@ const KEYWORDS_CORE = [
   'AI company Islamabad',
   'AI company Mirpur',
   'XactGen',
-  'Ashir Mehfooz',
-  'CEO of XactGen',
+  'XactGen AI',
 ]
 
 export function generateMetadata({

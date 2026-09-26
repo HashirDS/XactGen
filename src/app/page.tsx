@@ -12,14 +12,7 @@ import { toBucket } from '@/lib/service-details'
 // Re-check Firestore at most once a minute so admin edits appear on the site
 export const revalidate = 60
 
-export const metadata: Metadata = genMeta({
-  description: 'Ashir Mehfooz is the founder and CEO of XactGen, an AI company. XactGen AI builds smarter solutions with Artificial Intelligence, Data Science and next-generation technology.',
-  keywords: [
-    'CEO of XactGen', 'XactGen AI', 'Ashir Mehfooz',
-    'AI company Pakistan', 'machine learning services',
-    'AI development services', 'XactGen',
-  ],
-})
+export const metadata: Metadata = genMeta({})
 
 export default async function HomePage() {
   const buckets = (await loadServices()).map(toBucket)

@@ -28,8 +28,8 @@ const defaults: Settings = {
  linkedinUrl: 'https://www.linkedin.com/company/xactgen/',
  whatsappNumber: '923049111104',
  googleMapsUrl: 'https://maps.app.goo.gl/ZRfTvPLQ8VkHyGoY6',
- metaTitle: 'XactGen | Exact Solutions for the Next Generation',
- metaDescription: 'Leading AI development company in Pakistan. Machine Learning, Deep Learning, Computer Vision, NLP, and Web Development services.',
+ metaTitle: 'XactGen AI | Exact Solutions for the Next Generation',
+ metaDescription: 'XactGen AI builds AI software, machine learning tools, data analytics, chatbots, dashboards, and websites from the Software Technology Park in Kotli, AJK.',
 }
 
 export default function AdminSettingsPage() {
@@ -200,7 +200,7 @@ export default function AdminSettingsPage() {
  <div>
  <label className={labelClass}>Default Meta Title</label>
  <input name="metaTitle" value={settings.metaTitle} onChange={handleChange}
- className={inputClass} placeholder="XactGen | Exact Solutions for the Next Generation" />
+ className={inputClass} placeholder="XactGen AI | Exact Solutions for the Next Generation" />
  <p className="text-xs text-slate-500 mt-1">
  Recommended: 50–60 characters · Current: {settings.metaTitle.length} chars
  </p>
@@ -209,7 +209,7 @@ export default function AdminSettingsPage() {
  <label className={labelClass}>Default Meta Description</label>
  <textarea name="metaDescription" rows={3} value={settings.metaDescription} onChange={handleChange}
  className={`${inputClass} resize-none`}
- placeholder="Leading AI development company in Pakistan..." />
+ placeholder="XactGen AI builds AI software, machine learning tools, and websites from Kotli." />
  <p className="text-xs text-slate-500 mt-1">
  Recommended: 150–160 characters · Current: {settings.metaDescription.length} chars
  </p>
@@ -228,8 +228,8 @@ export default function AdminSettingsPage() {
  { done: true, label: 'JSON-LD Review schema on reviews' },
  { done: true, label: 'Canonical URLs configured' },
  { done: true, label: 'Semantic HTML (article, section, nav, main)' },
- { done: false, label: 'Add NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION to .env.local and Vercel env vars' },
- { done: false, label: 'Submit sitemap.xml to Google Search Console' },
+ { done: true, label: 'Google Search Console verified for xactgenai.com' },
+ { done: true, label: 'Sitemap submitted in Google Search Console' },
  { done: true, label: 'OG share image at /public/og-image.png (1200x630)' },
  { done: true, label: 'Favicon and app icons in /public/' },
  ].map(item => (
