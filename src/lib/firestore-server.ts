@@ -120,9 +120,17 @@ function plain<T extends { createdAt?: any; updatedAt?: any }>(item: T): T {
   return { ...item, createdAt: toMs(item.createdAt), updatedAt: toMs(item.updatedAt) } as T
 }
 
+function withBuiltinServices(live: Service[]): Service[] {
+  const ids = new Set(live.map(s => s.id))
+  const extras = defaultServices
+    .filter(s => s.active && !ids.has(s.id))
+    .map(s => ({ ...s }) as Service)
+  return [...live, ...extras].sort(byOrder)
+}
+
 export async function loadServices(): Promise<Service[]> {
   return loadWithFallback(
-    async () => (await listDocsREST<Service>('services')).filter(s => s.active !== false).sort(byOrder).map(plain),
+    async () => withBuiltinServices((await listDocsREST<Service>('services')).filter(s => s.active !== false).map(plain)),
     defaultServices.filter(s => s.active).map(s => ({ ...s }) as Service),
   )
 }

@@ -9,8 +9,8 @@ import { SITE, composeEmailUrl } from '@/lib/site'
 
 const services = [
   'AI Development', 'Machine Learning', 'Deep Learning',
-  'Computer Vision', 'NLP', 'Business Intelligence',
-  'Data Analytics', 'Web Scraping & Automation', 'Web Development',
+  'Computer Vision', 'NLP', 'Generative AI', 'RAG Systems', 'Model Fine-Tuning',
+  'Business Intelligence', 'Data Analytics', 'Web Scraping & Automation', 'Web Development',
   'Documentation & Academic Support', 'Other',
 ]
 

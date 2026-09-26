@@ -78,6 +78,24 @@ export const defaultServices: Seed<Service>[] = [
     fullDescription: 'Clear, well-structured documentation for software and research projects, plus guidance on university projects and research work.',
     features: ['Project documentation', 'University projects', 'Research assistance'],
   },
+  {
+    id: 'generative-ai', slug: 'generative-ai', title: 'Generative AI', icon: 'ai', order: 12, active: true,
+    shortDescription: 'Large language models, prompt design, and generative tools for real products.',
+    fullDescription: 'XactGen AI designs generative systems that write, answer, and create inside a product: language models, prompt workflows, and text-to-speech, evaluated on the task they are meant to do.',
+    features: ['Large language models', 'Prompt engineering', 'Text to speech'],
+  },
+  {
+    id: 'rag-systems', slug: 'rag-systems', title: 'RAG Systems', icon: 'nlp', order: 13, active: true,
+    shortDescription: 'Assistants that answer from your own documents instead of guessing.',
+    fullDescription: 'Retrieval-augmented generation connects a language model to your documents, so a chatbot can answer from approved material and show where an answer came from.',
+    features: ['Document search', 'Private knowledge', 'Source-backed answers'],
+  },
+  {
+    id: 'model-fine-tuning', slug: 'model-fine-tuning', title: 'Model Fine-Tuning', icon: 'dl', order: 14, active: true,
+    shortDescription: 'Adapting and evaluating models in PyTorch and TensorFlow for a specific job.',
+    fullDescription: 'When a general model is not accurate enough, XactGen AI fine-tunes and evaluates it on your examples, then checks that it still behaves on data it has not seen.',
+    features: ['PyTorch', 'TensorFlow', 'Model evaluation'],
+  },
 ]
 
 export const defaultTeam: Seed<TeamMember>[] = [
@@ -129,6 +147,40 @@ export const defaultProjects: Seed<Project>[] = [
 ]
 
 export const defaultBlogPosts: Seed<BlogPost>[] = [
+  {
+    id: 'xactgen-ai-services-and-products',
+    slug: 'xactgen-ai-services-and-products',
+    title: 'XactGen AI: services, products, and the work behind them',
+    excerpt: 'What XactGen AI offers, the products it has shipped, and the practice behind the company.',
+    content: `XactGen AI is the AI and data science company at the Software Technology Park, University of Kotli, Azad Jammu and Kashmir. Clients also know it as XactGen. The work is practical: software, models, and dashboards that a business can use.
+
+## Services
+
+The company builds custom AI systems, machine learning, deep learning, computer vision, and natural language tools. That includes chatbots, sentiment analysis, and generative AI.
+
+Newer work sits in three related skills. Generative AI covers language models, prompt design, and text-to-speech. RAG systems let an assistant answer from a client's own documents. Model fine-tuning adapts a model in PyTorch or TensorFlow and checks it on new examples.
+
+The same team delivers the surrounding software: data analytics, business dashboards in Power BI, Tableau, and Excel, websites, mobile apps, small embedded systems, and project documentation.
+
+## Products
+
+Public products and client work include a browser-based virtual try-on tool, interactive dashboards, and business websites for clients in the United States, Australia, Pakistan, and Italy. Education work includes the Smart Animated Tutor, a web system that uses generative AI, text-to-speech, and 3D avatars to teach alphabets, numbers, colours, and shapes to children aged 3 to 6, with a poem generator, a drawing canvas, and a teacher dashboard.
+
+## About the founder
+
+Ashir Mehfooz is the founder and chief executive. His curriculum vitae uses the spelling Asher Mehfooz. He completed a Bachelor of Science in Data Science at the University of Kotli from October 2021 to December 2025, with a CGPA of 3.89 out of 4.00, and graduated as gold medalist. XactGen was the university's first student-led startup registered under the Software Technology Park.
+
+He works in Python, SQL, React, Next.js, PyTorch, TensorFlow, scikit-learn, FastAPI, LangChain, Power BI, Tableau, Docker, and Azure AI. A fuller account of his education and roles is in the profile article on this blog.`,
+    tags: ['XactGen AI', 'AI services', 'Generative AI', 'RAG', 'Data Science'],
+    category: 'AI & ML',
+    author: 'XactGen',
+    published: true,
+    featured: true,
+    readTime: 5,
+    coverImageUrl: '',
+    metaTitle: 'XactGen AI services and products',
+    metaDescription: 'XactGen AI services in generative AI, RAG, fine-tuning, dashboards, and websites, and the products shipped from Kotli.',
+  },
   {
     id: 'ashir-mehfooz-founder-ceo-xactgen',
     slug: 'ashir-mehfooz-founder-ceo-xactgen',

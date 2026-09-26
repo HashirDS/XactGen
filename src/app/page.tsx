@@ -15,7 +15,7 @@ export const revalidate = 60
 export const metadata: Metadata = genMeta({})
 
 export default async function HomePage() {
-  const buckets = (await loadServices()).map(toBucket)
+  const buckets = (await loadServices()).map(toBucket).slice(0, 12)
   return (
     <>
       <Navbar />
