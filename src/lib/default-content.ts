@@ -85,13 +85,13 @@ export const defaultTeam: Seed<TeamMember>[] = [
     id: 'ashir-mehfooz', name: 'Ashir Mehfooz', role: 'CEO', order: 1,
     imageUrl: 'https://raw.githubusercontent.com/datixai/datixaiweb-assets/main/datixaiwebassests/ashirnewpic.jpeg',
     bio: 'Ashir leads XactGen with a vision to build a leading company that creates smart solutions with real impact. Starting his journey as a BS Data Science student, he has worked on real projects and solved real-world problems.',
-    linkedin: '',
+    linkedin: 'https://www.linkedin.com/in/ashir-mehfooz',
   },
   {
     id: 'ahmed-ali', name: 'Ahmed Ali', role: 'Head of AI', order: 2,
     imageUrl: 'https://raw.githubusercontent.com/datixai/datixaiweb-assets/main/datixaiwebassests/Ahmed%20Ali.jpeg',
     bio: 'AI Engineer and Data Scientist with hands-on experience building and deploying machine learning models, deep learning systems, computer vision pipelines and full-stack AI applications. Kaggle Notebooks Expert, ranked in the top 2% globally.',
-    linkedin: 'https://www.linkedin.com/in/rajaahmedalikhan/',
+    linkedin: '',
   },
   {
     id: 'saiqa-aziz', name: 'Saiqa Aziz', role: 'Project Manager', order: 3,

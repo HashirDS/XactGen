@@ -14,6 +14,8 @@ export const metadata: Metadata = genMeta({
 })
 
 export default async function Page() {
-  const team = await loadTeam()
+  const team = (await loadTeam()).map(member =>
+    member.linkedin?.includes('rajaahmedalikhan') ? { ...member, linkedin: '' } : member
+  )
   return <AboutClient team={team} />
 }
