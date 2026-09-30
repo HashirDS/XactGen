@@ -140,7 +140,12 @@ export default function AsherMehfoozPage() {
     alternateName: ['Ashir Mehfooz', 'Hashir'],
     jobTitle: 'Founder and CEO, XactGen AI',
     url: `${SITE.url}/asher-mehfooz`,
-    image: SITE.ceo.photo,
+    image: {
+      '@type': 'ImageObject',
+      url: SITE.ceo.photo,
+      contentUrl: SITE.ceo.photo,
+      caption: 'Asher Mehfooz, founder and CEO of XactGen AI',
+    },
     worksFor: { '@type': 'Organization', name: 'XactGen AI', url: SITE.url },
     alumniOf: { '@type': 'CollegeOrUniversity', name: 'University of Kotli' },
     sameAs: [SITE.ceo.linkedin, SITE.github, 'https://www.kaggle.com/ashirzaki', 'https://asher-mehfooz-portfolio.vercel.app/'],
@@ -165,7 +170,7 @@ export default function AsherMehfoozPage() {
               <p className="text-aurora-cyan text-sm font-medium uppercase tracking-widest mb-3">Founder and CEO, XactGen AI</p>
               <h1 className="font-display font-semibold text-4xl sm:text-5xl text-white mb-4">Asher Mehfooz</h1>
               <p className="text-slate-300 leading-relaxed mb-4">
-                Asher Mehfooz, known publicly as Ashir Mehfooz, is an AI developer and data scientist. He is the founder and chief executive of XactGen AI, and an AI developer and research team head at ROBX.AI.
+                Asher Mehfooz is an AI developer and data scientist, and the founder and chief executive of XactGen AI. Ashir Mehfooz is the same person. He is also an AI developer and research team head at ROBX.AI.
               </p>
               <p className="text-slate-400 leading-relaxed mb-6">
                 He earned a BS in Data Science from the University of Kotli (October 2021 – December 2025) with a CGPA of 3.89/4.00, and graduated as gold medalist. His thesis manuscript, on a multimodal tutoring system for early childhood education, has been submitted for first editorial review.

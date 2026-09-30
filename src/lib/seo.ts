@@ -260,16 +260,16 @@ export function generateJsonLd(
       '@context': 'https://schema.org',
       '@type': 'Person',
       '@id': `${SITE_URL}/#founder`,
-      name: SITE.ceo.name,
-      alternateName: ['Asher Mehfooz', 'Hashir'],
+      name: 'Asher Mehfooz',
+      alternateName: ['Ashir Mehfooz', 'Hashir'],
       jobTitle: 'Founder and CEO',
-      description: 'Ashir Mehfooz is the founder and CEO of XactGen and an AI developer at ROBX.AI. He earned a BS in Data Science from the University of Kotli.',
+      description: 'Asher Mehfooz is the founder and CEO of XactGen AI. Ashir Mehfooz is the same person. He earned a BS in Data Science from the University of Kotli. His photograph is the seated portrait in a white shirt and black tie.',
       url: `${SITE_URL}/asher-mehfooz`,
       image: {
         '@type': 'ImageObject',
         url: SITE.ceo.photo,
         contentUrl: SITE.ceo.photo,
-        caption: 'Ashir Mehfooz, founder and CEO of XactGen',
+        caption: 'Asher Mehfooz, founder and CEO of XactGen AI',
       },
       worksFor: { '@id': `${SITE_URL}/#organization` },
       alumniOf: {
@@ -277,7 +277,7 @@ export function generateJsonLd(
         name: 'University of Kotli',
         address: 'Kotli, Azad Jammu and Kashmir, Pakistan',
       },
-      sameAs: [SITE.ceo.linkedin, SITE.github, 'https://asher-mehfooz-portfolio.vercel.app/'],
+      sameAs: [SITE.ceo.linkedin, SITE.github, 'https://www.kaggle.com/ashirzaki', 'https://asher-mehfooz-portfolio.vercel.app/'],
       knowsAbout: ['Artificial Intelligence', 'Data Science', 'Large Language Models', 'Retrieval-Augmented Generation'],
     }
   }

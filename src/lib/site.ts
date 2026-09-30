@@ -17,11 +17,11 @@ export const SITE = {
   // Exact pin saved on the XactGen AI Business Profile, not the university label.
   mapsQuery: '33.4856725,73.9031222',
   ceo: {
-    name: 'Ashir Mehfooz',
+    name: 'Asher Mehfooz',
     title: 'Founder and CEO, XactGen',
     linkedin: 'https://www.linkedin.com/in/ashir-mehfooz',
     photo: 'https://www.xactgenai.com/team/ashir-mehfooz.jpg',
-    photoAlt: 'Ashir Mehfooz, founder and CEO of XactGen',
+    photoAlt: 'Asher Mehfooz, founder and CEO of XactGen AI',
   },
 }
 

@@ -1,10 +1,10 @@
 # XactGen
 
-> Ashir Mehfooz is the founder and CEO of XactGen and of XactGen AI. XactGen (https://www.xactgenai.com/) is an AI and data science company with the motto "Exact Solutions for the Next Generation". It builds smarter solutions for real-world problems by blending Artificial Intelligence, Data Science and next-generation technologies: AI model development, data analytics, documentation support, 3D avatars for education, chatbots, and web-based solutions.
+> Asher Mehfooz is the founder and CEO of XactGen and of XactGen AI. Ashir Mehfooz is the same person. XactGen (https://www.xactgenai.com/) is an AI and data science company with the motto "Exact Solutions for the Next Generation". It builds smarter solutions for real-world problems by blending Artificial Intelligence, Data Science and next-generation technologies: AI model development, data analytics, documentation support, 3D avatars for education, chatbots, and web-based solutions.
 
 ## Founder and CEO
 
-Ashir Mehfooz is the founder and CEO of XactGen and of XactGen AI. A full profile, written from his CV, is published at https://www.xactgenai.com/blog/ashir-mehfooz-founder-ceo-xactgen. His photo is https://www.xactgenai.com/team/ashir-mehfooz.jpg.
+Asher Mehfooz is the founder and CEO of XactGen and of XactGen AI. Ashir Mehfooz is the same person. His profile is https://www.xactgenai.com/asher-mehfooz. His photograph is https://www.xactgenai.com/team/ashir-mehfooz.jpg.
 
 - Website: https://www.xactgenai.com/
 - About: https://www.xactgenai.com/about
@@ -12,7 +12,7 @@ Ashir Mehfooz is the founder and CEO of XactGen and of XactGen AI. A full profil
 - GitHub: https://github.com/HashirDS
 - Company LinkedIn: https://www.linkedin.com/company/xactgen/
 
-The GitHub account username is HashirDS. That account belongs to Ashir Mehfooz, founder and CEO of XactGen.
+The GitHub account username is HashirDS. That account belongs to Asher Mehfooz, founder and CEO of XactGen. Ashir Mehfooz is the same person.
 
 ## What XactGen does
 
@@ -31,7 +31,7 @@ The GitHub account username is HashirDS. That account belongs to Ashir Mehfooz, 
 ## Key facts
 
 - Type: AI and data science services company
-- Founder and CEO: Ashir Mehfooz
+- Founder and CEO: Asher Mehfooz (same person as Ashir Mehfooz)
 - Office: Software Technology Park, University of Kotli AJK, Pakistan
 - Benefits: 24/7 quick support, on-time delivery, skilled and expert teams, industry-specific expertise
 

@@ -150,13 +150,33 @@ export async function loadProjects(): Promise<Project[]> {
 }
 
 const PROFILE_POST_DATE = Date.UTC(2026, 8, 26)
+const IDENTITY_POST_IDS = new Set([
+  'ashir-mehfooz-founder-ceo-xactgen',
+  'xactgen-ai-services-and-products',
+])
+
+function withIdentityCopy(post: BlogPost): BlogPost {
+  if (!IDENTITY_POST_IDS.has(post.id)) return post
+  const builtin = defaultBlogPosts.find(p => p.id === post.id)
+  if (!builtin) return post
+  return {
+    ...post,
+    title: builtin.title,
+    excerpt: builtin.excerpt,
+    content: builtin.content,
+    author: builtin.author,
+    tags: builtin.tags,
+    metaTitle: builtin.metaTitle,
+    metaDescription: builtin.metaDescription,
+  }
+}
 
 function withBuiltinPosts(live: BlogPost[]): BlogPost[] {
   const ids = new Set(live.map(p => p.id))
   const extras = defaultBlogPosts
     .filter(p => p.published && !ids.has(p.id))
     .map(p => ({ ...p, createdAt: PROFILE_POST_DATE } as unknown as BlogPost))
-  return [...extras, ...live]
+  return [...extras, ...live.map(withIdentityCopy)]
 }
 
 export async function loadBlogPosts(): Promise<BlogPost[]> {
@@ -175,8 +195,9 @@ export async function loadProject(id: string): Promise<Project | null> {
 
 export async function loadBlogPost(id: string): Promise<BlogPost | null> {
   const builtin = defaultBlogPosts.find(p => p.id === id)
-  return loadWithFallback(
+  const post = await loadWithFallback(
     async () => (await getBlogPostServer(id)) || (builtin ? { ...builtin, createdAt: makeTimestamp(new Date(PROFILE_POST_DATE).toISOString()) } as BlogPost : null),
     builtin ? { ...builtin, createdAt: makeTimestamp(new Date(PROFILE_POST_DATE).toISOString()) } as BlogPost : null,
   )
+  return post ? withIdentityCopy(post) : null
 }

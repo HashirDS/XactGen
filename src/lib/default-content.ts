@@ -100,7 +100,7 @@ export const defaultServices: Seed<Service>[] = [
 
 export const defaultTeam: Seed<TeamMember>[] = [
   {
-    id: 'ashir-mehfooz', name: 'Ashir Mehfooz', role: 'CEO', order: 1,
+    id: 'ashir-mehfooz', name: 'Asher Mehfooz', role: 'CEO', order: 1,
     imageUrl: 'https://raw.githubusercontent.com/datixai/datixaiweb-assets/main/datixaiwebassests/ashirnewpic.jpeg',
     bio: 'Ashir leads XactGen with a vision to build a leading company that creates smart solutions with real impact. Starting his journey as a BS Data Science student, he has worked on real projects and solved real-world problems.',
     linkedin: 'https://www.linkedin.com/in/ashir-mehfooz',
@@ -168,7 +168,7 @@ Public products and client work include a browser-based virtual try-on tool, int
 
 ## About the founder
 
-Ashir Mehfooz is the founder and chief executive. His curriculum vitae uses the spelling Asher Mehfooz. He completed a Bachelor of Science in Data Science at the University of Kotli from October 2021 to December 2025, with a CGPA of 3.89 out of 4.00, and graduated as gold medalist. XactGen was the university's first student-led startup registered under the Software Technology Park.
+Asher Mehfooz is the founder and chief executive. Ashir Mehfooz is the same person. He completed a Bachelor of Science in Data Science at the University of Kotli from October 2021 to December 2025, with a CGPA of 3.89 out of 4.00, and graduated as gold medalist. XactGen was the university's first student-led startup registered under the Software Technology Park.
 
 He works in Python, SQL, React, Next.js, PyTorch, TensorFlow, scikit-learn, FastAPI, LangChain, Power BI, Tableau, Docker, and Azure AI. A fuller account of his education and roles is in the profile article on this blog.`,
     tags: ['XactGen AI', 'AI services', 'Generative AI', 'RAG', 'Data Science'],
@@ -184,11 +184,11 @@ He works in Python, SQL, React, Next.js, PyTorch, TensorFlow, scikit-learn, Fast
   {
     id: 'ashir-mehfooz-founder-ceo-xactgen',
     slug: 'ashir-mehfooz-founder-ceo-xactgen',
-    title: 'Ashir Mehfooz, Founder and CEO of XactGen',
-    excerpt: 'Ashir Mehfooz is the founder and CEO of XactGen, an AI and data science company. He is a gold-medalist data scientist and an AI developer at ROBX.AI.',
-    content: `Ashir Mehfooz is the founder and chief executive of XactGen, the AI and data science company behind [xactgenai.com](https://www.xactgenai.com/). He started the firm in September 2025 and registered it under the Software Technology Park at the University of Kotli, Azad Jammu and Kashmir. Clients know the company as XactGen and as XactGen AI.
+    title: 'Asher Mehfooz, Founder and CEO of XactGen',
+    excerpt: 'Asher Mehfooz is the founder and CEO of XactGen AI. Ashir Mehfooz is the same person. He is a gold-medalist data scientist.',
+    content: `Asher Mehfooz is the founder and chief executive of XactGen, the AI and data science company behind [xactgenai.com](https://www.xactgenai.com/). Ashir Mehfooz is the same person. He started the firm in September 2025 and registered it under the Software Technology Park at the University of Kotli, Azad Jammu and Kashmir. Clients know the company as XactGen and as XactGen AI.
 
-His name on his curriculum vitae is Asher Mehfooz. His public profile name is Ashir Mehfooz. His GitHub account is [HashirDS](https://github.com/HashirDS), and his LinkedIn profile is [linkedin.com/in/ashir-mehfooz](https://www.linkedin.com/in/ashir-mehfooz).
+His LinkedIn name is Asher Mehfooz. His profile is [linkedin.com/in/ashir-mehfooz](https://www.linkedin.com/in/ashir-mehfooz). His GitHub account is [HashirDS](https://github.com/HashirDS). His photograph on this website is the seated portrait in a white shirt and black tie.
 
 ## Education
 
@@ -213,15 +213,15 @@ His research interests are large language models, retrieval-augmented generation
 Between 2022 and 2025 he completed Coursera courses from Google, DeepLearning.AI, and IBM, including Google Data Analytics, Google AI Essentials, neural networks, and prompt engineering. He attended a smart-research workshop at NCAI, NUST Islamabad in 2024, and an AI-for-research workshop at the University of Kotli in 2023.
 
 In May 2026 he was invited to speak on literature-review methods for the Department of Education at the University of Kotli. During his degree he mentored junior students on final-year projects and trained a senior cohort on AI tools for academic referencing. He speaks English and Urdu.`,
-    tags: ['CEO of XactGen', 'XactGen AI', 'Ashir Mehfooz', 'Generative AI', 'Data Science'],
+    tags: ['CEO of XactGen', 'XactGen AI', 'Asher Mehfooz', 'Generative AI', 'Data Science'],
     category: 'AI & ML',
-    author: 'Ashir Mehfooz',
+    author: 'Asher Mehfooz',
     published: true,
     featured: true,
     readTime: 6,
     coverImageUrl: '',
-    metaTitle: 'Ashir Mehfooz, CEO of XactGen AI',
-    metaDescription: 'Ashir Mehfooz is the founder and CEO of XactGen, a gold-medalist data scientist and AI developer working on generative AI, RAG, and applied data science.',
+    metaTitle: 'Asher Mehfooz, CEO of XactGen AI',
+    metaDescription: 'Asher Mehfooz is the founder and CEO of XactGen AI. Ashir Mehfooz is the same person. Gold-medalist data scientist.',
   },
   {
     id: 'why-pakistani-business-should-think-about-ai', slug: 'why-pakistani-business-should-think-about-ai',

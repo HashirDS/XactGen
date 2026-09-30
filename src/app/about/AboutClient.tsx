@@ -118,7 +118,7 @@ export default function AboutClient({ team }: { team: TeamMember[] }) {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {team.map((member, i) => {
-                const name = member.name || 'Team Member'
+                const name = member.name === 'Ashir Mehfooz' ? 'Asher Mehfooz' : (member.name || 'Team Member')
                 const initials = name.split(' ').map(n => n[0] || '').join('').slice(0, 2).toUpperCase() || 'TM'
                 return (
                 <AnimatedSection key={member.id} delay={i * 80}>
