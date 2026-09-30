@@ -74,6 +74,7 @@ export default function Footer() {
             <h4 className="font-display font-medium text-white mb-4 text-xs uppercase tracking-widest">Company</h4>
             <ul className="space-y-2.5 text-sm">
               <li><Link href="/about" className="text-slate-400 hover:text-aurora-cyan transition-colors">About</Link></li>
+              <li><Link href="/asher-mehfooz" className="text-slate-400 hover:text-aurora-cyan transition-colors">Asher Mehfooz</Link></li>
               <li><Link href="/projects" className="text-slate-400 hover:text-aurora-cyan transition-colors">Projects</Link></li>
               <li><Link href="/blog" className="text-slate-400 hover:text-aurora-cyan transition-colors">Blog</Link></li>
               <li><Link href="/contact" className="text-slate-400 hover:text-aurora-cyan transition-colors">Contact</Link></li>
