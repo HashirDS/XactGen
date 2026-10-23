@@ -113,14 +113,8 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="pt-8 border-t border-white/[0.05] flex flex-col md:flex-row justify-between items-center gap-3">
+        <div className="pt-8 border-t border-white/[0.05] flex justify-center">
           <p className="text-slate-500 text-xs">© {year} XactGen AI. All rights reserved.</p>
-          <p className="text-slate-500 text-xs">
-            Developed by{' '}
-            <a href="https://datixai.com" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-aurora-cyan transition-colors">
-              Datix AI
-            </a>
-          </p>
         </div>
       </div>
     </footer>
